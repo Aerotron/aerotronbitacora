@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.hello" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Employee Directory</name>
+    <description>
+        Aerotron Bitacoras.
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        Joshua Peña
+    </author>
+    <feature name="http://api.phonegap.com/1.0/device" />
+    
+    <icon src="icon.png" />
+    <access origin="http://127.0.0.1*" />
+	<access origin="http://code.jquery.com" />
+	<access origin="*" />
+	<feature name="http://api.phonegap.com/1.0/battery"/>
+	<feature name="http://api.phonegap.com/1.0/camera"/>
+	<feature name="http://api.phonegap.com/1.0/contacts"/>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/media"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/notification"/>
+</widget>

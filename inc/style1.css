@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+}
+
+.header {
+	background: #09C;	
+}
+.logo {
+	with: auto;
+	height: 60px;
+	margin: auto;
+}
+
+.blueline {
+	width: 100%;
+	height: 18px;
+	background: #0b2135;
+	}
+
+.ui-icon-my-logbook {
+	background-image: url(images/BOOK_Icon_32.png);
+}
+.uppercase {
+	text-transform: uppercase;
+}
+
+label.error { 
+	float: left; 
+	color: red; 
+	padding-top: .5em; 
+	vertical-align: top; 
+	font-weight:bold
+}

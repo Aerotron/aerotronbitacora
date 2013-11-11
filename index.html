@@ -1,0 +1,651 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta name="viewport" content="width=device-width" />
+<title>Aplic. Web de jQuery Mobile</title>
+<link rel="stylesheet" type="text/css" href="inc/style1.css">
+<link href="jquery-mobile/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+<script src="inc/cirrus.js" type="text/javascript"></script>
+<script src="inc/GastosJS.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.validate.js"></script>
+<script type="text/javascript" language="javascript">
+    $(document).ready(function(){
+$("#bitacoraForm").validate();
+});
+	$(function(){
+    $('input').focusout(function() {
+        // Uppercase-ize contents
+        this.value = this.value.toLocaleUpperCase();
+    });
+});
+</script>
+
+</head> 
+<body> 
+<div data-role="page" id="page" data-dom-cache="true" data-add-back-btn="true">
+	<div data-role="header">
+		<h1>Aerotron</h1>
+	</div>
+	<div data-role="content">
+    <div style="align-content:center">
+    <img src="images/logo.png" width="270" height="100" alt=""/>
+    </div>
+<div data-role="fieldcontain">
+      <label for="textinput">Nombre de Usuario:</label>
+	    <input type="text" name="textinput" id="textinput" value=""  />
+      </div>
+	  <div data-role="fieldcontain">
+	    <label for="passwordinput">Contraseña:</label>
+	    <input type="password" name="passwordinput" id="passwordinput" value=""  />
+      </div>
+	  <a href="#home" data-role="button" data-icon="home">Login</a>
+      	
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="home" data-dom-cache="true" data-add-back-btn="false">
+	<div data-role="header">
+		<h1>Aerotron</h1>
+	</div>
+	<div data-role="content">
+	 <div><p>Nombre: <span id="NamePiloto">Joshua Peña</span></p></div>
+	 	<div>
+	   		<ul data-role="listview" data-filter="true">
+     			<li><a href="#gastos" rel="external">Informe de Gastos</a><span class="ui-li-count">10</span></li>
+    			<li><a href="#bitacoras">Bitacoras</a><span class="ui-li-count">8</span></li>
+    			<li data-icon="gear"> <a href="#Perfil" runat="server">Perfil</a>
+    			</li>
+    		</ul>
+    	</div>
+    <div class="ui-body">
+    <span>&nbsp;</span>
+    <a href="#page" data-role="button" data-icon="delete">Log out</a>
+      	</div>
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+<div data-role="page" id="Perfil" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>Encabezado</h1>
+  </div>
+  <div data-role="content">
+  <a href="#page" data-role="button" data-icon="delete">Borrar Datos y Resincronizar</a>
+  <p>Nombre: Joshua Peña</p>
+  <p>Matriculas asignadas:</p>
+  <p>XAPVR</p>
+  <p>XAVIU</p>
+  <p>....</p>
+  </div>
+  <div data-role="footer">
+    <h4>Pie</h4>
+  </div>
+</div>
+
+<div data-role="page" id="bitacoras" data-add-back-btn="true">
+	<div data-role="header">
+		<h1>Página tres</h1>
+	</div>
+	<div data-role="content">	
+		<a href="#Cirrus" data-role="button" data-icon="grid">XAUSV (cirrus)</a>
+        <a href="#" data-role="button" data-icon="grid">XAPVR (Citation) </a>	
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+<div data-role="page" id="Cirrus" data-add-back-btn="true" >
+  <div data-role="header">
+    <h1>Encabezado</h1>
+  </div>
+  <div data-role="content">
+  <form id="BitacoraForm" method="post" action novalidate>
+    <fieldset>
+    <span>Capitan</span>	
+		<input type="text" id="capitan" class="uppercase" minlength="2" required >
+	<span>Copiloto</span>
+ 		<input type="text" id="copiloto" class="uppercase" required>
+     <span>Matricula</span>
+ 		<input type="text" id="matricula" value="XAPVR" class="uppercase" required>
+ 		
+ 		  <label for="date">Fecha:</label>
+ 		  <input type="date" name="date" id="date" value=""  />
+          <label for="solicitado">Solicitado por:</label>
+          <input type="text" id="solicitado" class="uppercase" required>
+     	<label for="date">Folio:</label>
+ 		<input type="number" id="matricula" value="XAPVR" class="uppercase" required>
+          
+          </fieldset>
+          </form>
+          <a onclick="saveLogbook1();" href="#Cirrus2" data-role="button" >Crear Bitacora</a>
+  </div>
+  <div data-role="footer">
+         <ul data-role="listview" data-inset="true">
+        <li><a href="#Cirrus">Info</a></li>
+        <li><a href="#Cirrus2">Vuelo</a></li>
+        <li><a href="#Cirrus3">Lecturas</a></li>
+        <li><a href="#Corrus4">Pax</a></li>
+        <li><a href="#Corrus5">Mantenimiento</a></li>
+        <li><a href="#Submit">Página</a></li>
+      </ul>
+     
+    </div>
+  </div>
+</div>
+<div data-role="page" id="Cirrus2" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>Encabezado</h1>
+  </div>
+  <div data-role="content">
+  <div class="ui-grid-a" >
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">(Origen) De:</label>
+    <input type="text" id="De" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">(Destino) A:</label>
+    <input type="text" id="A" class="uppercase" required>
+    </div>
+    </div>
+    </div>
+    <div class="ui-grid-b" >
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="utcSalen">UTC SALE:</label>
+    <input type="time" datarole="timebox" id="utcSale" class="uppercase" required >
+    </div>
+    </div>
+    <div class="ui-block-b">
+    <div class="ui-bar">
+    <label for="utcLlega">UTC LLEGA:</label>
+    <input type="time" id="utcLlega" class="uppercase" required onChange="calACalinput();">
+    </div>
+    </div>
+    <div class="ui-block-c" >
+    <div class="ui-bar">
+    <label for="calACal">Cal. A Cal.:</label>
+    <input type="text" id="calACal" class="uppercase" value= "" required data-theme="b" readonly>
+    </div>
+    </div>
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="hSale">H SALE:</label>
+    <input type="number" id="hSale" class="uppercase" required onChange="tVueloTotal();" >
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="hLlega">H LLEGA:</label>
+    <input type="number" id="hLlega" class="uppercase" required onChange="tVueloTotal();">
+    </div>
+    </div>
+    <div class="ui-block-c" >
+    <div class="ui-bar">
+    <label for="solicitado">T VUELO.:</label>
+    <input type="number" id="tVuelo" class="uppercase" value= "" required data-theme="b" readonly>
+    </div>
+    </div>
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">C.Sale(Gal):</label>
+    <input type="number" id="cSale" class="uppercase" value= "" required onChange="ConsumoGas();">
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">C.Llega(Gal):</label>
+    <input type="number" id="cLlega" class="uppercase" required onChange="ConsumoGas();">
+    </div>
+    </div>
+    <div class="ui-block-c" >
+    <div class="ui-bar">
+    <label for="solicitado">Consumo:</label>
+    <input type="number" id="Consumo" class="uppercase" value= "" data-theme="b" required readonly>
+    </div>
+    </div>
+    
+  <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">P. Carga(kg):</label>
+    <input type="number" id="pCarga" class="uppercase" value= "" required onChange="pDespegueTotal();">
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">P. Combustible:</label>
+    <input type="number" id="pCombust" class="uppercase" required readonly data-theme="b" onChange="pDespegueTotal();">
+    </div>
+    </div>
+    <div class="ui-block-c" >
+    <div class="ui-bar">
+    <label for="solicitado">P. Oper (Kg):</label>
+    <input type="number" id="pOper" class="uppercase" required value="1084" readonly data-theme="b">
+    </div>
+    </div>
+    </div>
+    <div class="ui-grid-a">
+    
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">P. Despegue:</label>
+    <input type="number" id="pDespegue" class="uppercase" value= "" required readonly data-theme="b">
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">MTOW:</label>
+    <input type="number" id="MTOW" class="uppercase" required value ="1542" readonly data-theme="b">
+    </div>
+    </div>
+    
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">N. Vuelo:</label>
+    <input type="text" id="pCarga" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">OAT:</label>
+    <input type="text" id="OAT" class="uppercase" value= "" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">Aceite +:</label>
+    <input type="text" id="pCarga" class="uppercase" required>
+    </div>
+    </div>
+  </div>
+  <a href="#Cirrus3" data-role="button" >Guardar</a>
+  </div>
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
+        <li><a href="#Cirrus">Info</a></li>
+        <li><a href="#Cirrus2">Vuelo</a></li>
+        <li><a href="#Cirrus3">Lecturas</a></li>
+        <li><a href="#Corrus4">Pax</a></li>
+        <li><a href="#Corrus5">Mantenimiento</a></li>
+        <li><a href="#Submit">Página</a></li>
+      </ul>
+     
+    </div>
+  </div>
+</div>
+<div data-role="page" id="Cirrus3" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>Lectura de Intrumentos</h1>
+  </div>
+  <div data-role="content">
+  <div class="ui-grid-solo">
+  <div class="ui-bar">
+    <label for="solicitado">CRUCERO %:</label>
+    <input type="number" id="De" class="uppercase" required>
+    </div>
+  </div>
+  <div class="ui-grid-a" >
+      <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">RPM:</label>
+    <input type="text" id="De" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">MAN. PRESS:</label>
+    <input type="text" id="A" class="uppercase" required>
+    </div>
+    </div>
+     <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">OIL TEMP.:</label>
+    <input type="text" id="De" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">OIL PRESS.:</label>
+    <input type="text" id="A" class="uppercase" required>
+    </div>
+    </div>
+     <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">EGT:</label>
+    <input type="text" id="De" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">CHT:</label>
+    <input type="text" id="A" class="uppercase" required>
+    </div>
+    </div>
+     <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">VOLTS:</label>
+    <input type="text" id="De" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="solicitado">AMPERS:</label>
+    <input type="text" id="A" class="uppercase" required>
+    </div>
+    </div>
+     <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="solicitado">FUEL FLOW:</label>
+    <input type="text" id="De" class="uppercase" required>
+    </div>
+    </div>
+    </div>
+    <a href="#Cirrus4" data-role="button" >Siguiente</a>
+      </div>
+  <div data-role="footer">
+        <ul data-role="listview" data-inset="true">
+        <li><a href="#Cirrus">Info</a></li>
+        <li><a href="#Cirrus2">Vuelo</a></li>
+        <li><a href="#Cirrus3">Lecturas</a></li>
+        <li><a href="#Corrus4">Pax</a></li>
+        <li><a href="#Corrus5">Mantenimiento</a></li>
+        <li><a href="#Submit">Página</a></li>
+      </ul>
+     
+    </div>
+  </div>
+</div>
+<div data-role="page" id="Cirrus4" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>PAX</h1>
+  </div>
+  <div data-role="content">
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+        <legend>Es un tramo Ferry?:</legend>
+        <input type="checkbox" name="checkbox1" id="checkbox1_0" class="custom" value="" />
+        <label for="checkbox1_0">Ferry</label>
+      </fieldset>
+    </div>
+    <p><strong>PAX:</strong></p>
+    <div data-role="fieldcontain">
+      <label for="textinput5">1:</label>
+      <input type="text" name="textinput5" id="textinput5" value=""  />
+    </div>
+    <div data-role="fieldcontain">
+      <label for="textinput5">2:</label>
+      <input type="text" name="textinput5" id="textinput5" value=""  />
+    </div>
+    <div data-role="fieldcontain">
+      <label for="textinput5">3:</label>
+      <input type="text" name="textinput5" id="textinput5" value=""  />
+    </div>
+  <a href="#Cirrus5" data-role="button" >Siguiente</a>
+    </div>
+  <div data-role="footer">
+    <h4>Pie</h4>
+  </div>
+</div>
+<div data-role="page" id="Cirrus5" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>Mantenimiento</h1>
+  </div>
+  <div data-role="content">
+    <div data-role="fieldcontain">
+      <label for="textarea">Reportes:</label>
+      <textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+    </div>
+    <div data-role="fieldcontain">
+      <label for="textarea2">Accion Correctiva:</label>
+      <textarea cols="40" rows="8" name="textarea2" id="textarea2"></textarea>
+    </div>
+    <div data-role="fieldcontain">
+      <label for="selectmenu4" class="select">Prevuelo:</label>
+      <select name="selectmenu4" id="selectmenu4">
+        <option value="option1">Piloto</option>
+        <option value="option2">Mecanico de Base</option>
+        <option value="option3">Externo</option>
+      </select>
+    </div>
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+        <legend>Mecanico</legend>
+        <input type="radio" name="radio1" id="radio1_0" value="" />
+        <label for="radio1_0">Lomeli</label>
+        <input type="radio" name="radio1" id="radio1_1" value="" />
+        <label for="radio1_1">Colon</label>
+        <input type="radio" name="radio1" id="radio1_2" value="" />
+        <label for="radio1_2">Maya</label>
+        
+      </fieldset>
+    </div>
+    <div data-role="fieldcontain">
+      <label for="textinput6">Otro:</label>
+      <input type="text" name="textinput6" id="textinput6" value=""  />
+    </div>
+  <a href="#Cirrus" data-role="button" >Siguiente</a>
+  </div>
+  <div data-role="footer">
+    <h4>Pie</h4>
+  </div>
+</div>
+
+
+<div data-role="page" id="bitacoraxapvr" data-add-back-btn="true">
+	<div data-role="header">
+		<h1>Página dos</h1>
+	</div>
+	<div data-role="content">
+    <form id="BitacoraForm" method="post" action novalidate>
+    <fieldset>
+    <span>Capitan</span>	
+		<input type="text" id="capitan" class="uppercase" minlength="2" required >
+	<span>Copiloto</span>
+ 		<input type="text" id="copiloto" class="uppercase" required>
+     <span>Matricula</span>
+ 		<input type="text" id="matricula" value="XAPVR" class="uppercase" required>
+ 		
+ 		  <label for="date">Fecha:</label>
+ 		  <input type="date" name="date" id="date" value=""  />
+			<div data-role="collapsible-set">
+ 		  <div data-role="collapsible">
+ 		    <h3>Encabezado</h3>
+ 		    <p>Contenido</p>
+	      </div>
+ 		  <div data-role="collapsible" data-collapsed="true">
+ 		    <h3>Encabezado</h3>
+ 		    <div>
+            <label for="n1">N1</label>
+            <input type="text" id="n1" class="uppercase">
+            </div>
+            <div>
+            <label for="n2">N1</label>
+            <input type="text" id="n2" class="uppercase">
+            </div>
+	      </div>
+ 		  <div data-role="collapsible" data-collapsed="true">
+ 		    <h3>Encabezado</h3>
+ 		    <p>Contenido</p>
+	      </div>
+	  </div>
+       <input type="button" data-role="button" id="BtnSubmit" value="submit" >  
+      </fieldset></form>  	
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="gastos" data-add-back-btn="true">
+	<div data-role="header">
+		<h1>Gastos de Joshua</h1>
+	</div>
+	<div data-role="content">
+        <a href="#gastoNuevo" data-role="button" data-icon="plus">Agregar Nuevo</a>
+        <div>
+            <a href="#page" data-role="button" data-icon="refresh">Sincronizar Server</a>
+             <div data-role="fieldcontain">
+              <label for="datetime">Ultima Sincronizacion:</label>
+              <input type="datetime" name="datetime" id="datetime" value="01/01/1900"  />
+            </div>
+            </div>
+            <div>
+            <span>&nbsp;</span>
+            <ul data-role="listview" id="lstgastos" data-filter="true">
+            	<li><a href="#"> <h3>XAPVR</h3> <p>Viaje a las Estrellas</p></a></li>
+                <li><a href="#"> <h3>NCC-1701</h3> <p>Into the Darkness</p></a></li>
+                
+            </ul>
+        </div>
+	</div>
+	<div data-role="footer">
+		<ul data-role="listview" data-inset="true">
+        <li><a href="#Cirrus">Info</a></li>
+        <li><a href="#Cirrus2">Vuelo</a></li>
+        <li><a href="#Cirrus3">Lecturas</a></li>
+        <li><a href="#Corrus4">Pax</a></li>
+        <li><a href="#Corrus5">Mantenimiento</a></li>
+        <li><a href="#Submit">Página</a></li>
+      </ul>
+     
+    </div>
+	</div>
+</div>
+
+<div data-role="page" id="gastoNuevo" data-add-back-btn="true">
+	<div data-role="header">
+		<h1>Nuevo Gasto</h1>
+	</div>
+	<div data-role="content">	
+		<div data-role="fieldcontain">
+	    <label for="textinput2">Nombre:</label>
+	    <input type="text" name="textinput2" id="nombreg" value=""  />
+        </div>
+		
+        <div data-role="fieldcontain">
+         <label for="Titulo">Titulo:</label>
+	    <input type="text" name="Titulo" id="titulog" value=""  />
+      </div>	
+        
+	    <div data-role="fieldcontain">
+         <label for="Ruta">Ruta:</label>
+	    <input type="text" name="Ruta" id="Ruta" value=""  />
+      </div>	
+      <div data-role="fieldcontain">
+		  <label for="date2">Fecha:</label>
+		  <input type="date" name="date2" id="date2" value=""  />
+	  </div>
+      	<div data-role="fieldcontain">
+	      <label for="selectmenu" class="select">Matricula:</label>
+	      <select name="selectmenu" id="selectmatricula">
+	        <option value="option1">XAPVR</option>
+	        <option value="option2">XAUQK</option>
+	        <option value="option3">Opción 3</option>
+          </select>
+         </div>
+      	<a href="#" data-role="button" onClick="addGastosUser(1,'jjp','Test 2',1);">Botón</a>	
+         
+         <div data-role="fieldcontain">
+          <a href="#gastoDetalle"  type="button" data-role="button" id="crearInforme" value="Crear Informe" data-icon="plus">Crear Informe</a>
+          <a href="#gastos"  type="button" data-role="button" id="cancelarInforme" data-icon="delete">Cancelar</a>
+          </div>
+  </div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+
+<div data-role="page" id="agregarDetalle" data-add-back-btn="true">
+	<div data-role="header">
+		<h1 id="Usuario">Joshua Peña</h1>
+        <h3 id="tituloGasto"><span>Id Informe: 86 </span>
+        Titulo: VIaje a las Estrellas</h3>
+	</div>
+	<div data-role="content">
+	  <div data-role="fieldcontain">
+	    <label for="fechaGasto">Fecha:</label>
+	    <input type="date" name="fechaGasto" id="fechaGasto" value=""  />
+      </div>
+	  <div data-role="fieldcontain">
+	    <label for="lugar">Donde se Gasto:</label>
+	    <input type="text" name="lugar" id="lugar" value=""  />
+      </div>
+	  <div data-role="fieldcontain">
+	    <label for="textinput3">Importe:</label>
+	    <input type="text" name="textinput3" id="textinput3" value=""  />
+      </div>
+	  <div data-role="fieldcontain">
+	    <label for="textinput4">Referencia:</label>
+	    <input type="text" name="textinput4" id="textinput4" value=""  />
+      </div>
+	 
+	  <div data-role="fieldcontain">
+	    <label for="selectmenu" class="select">Concepto:</label>
+	    <select name="selectmenu" id="selectmenu">
+	      <option value="option1">Opción 1</option>
+	      <option value="option2">Opción 2</option>
+	      <option value="option3">Opción 3</option>
+        </select>
+      </div>
+	  <div data-role="fieldcontain">
+	    <label for="selectmenu2" class="select">Forma de Pago:</label>
+	    <select name="selectmenu2" id="selectmenu2">
+	      <option value="option1">Opción 1</option>
+	      <option value="option2">Opción 2</option>
+	      <option value="option3">Opción 3</option>
+        </select>
+      </div>
+	  <div data-role="fieldcontain">
+	    <label for="selectmenu3" class="select">Tipo de Moneda:</label>
+	    <select name="selectmenu3" id="selectmenu3">
+	      <option value="option1">Opción 1</option>
+	      <option value="option2">Opción 2</option>
+	      <option value="option3">Opción 3</option>
+        </select>
+      </div>
+	<a href="#gastoDetalle" data-role="button" data-icon="plus">Agregar</a>
+	</div>
+	<div data-role="footer">
+		<h4>Pie de página</h4>
+	</div>
+</div>
+<div data-role="page" id="gastoDetalle" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>Encabezado</h1>
+  </div>
+  <div data-role="content">
+   <a href="#agregarDetalle"  type="button" data-role="button" id="crearInforme" value="Crear Informe" data-icon="plus">Agregar Detalle</a>
+    <ul data-role="listview" data-inset="true">
+      <li><a href="#">
+        <h3>1233456</h3>
+        <p>Cancun Hotel Mayan Palace</p>
+        <span class="ui-li-count">$300.00</span></a></li>
+      <li><a href="#">
+        <h3>654321</h3>
+        <p>Las Vegas McDonalds</p>
+        <span class="ui-li-count">$2,350.00</span></a></li>
+      <li><a href="#">
+        <h3>A-765</h3>
+        <p>Toluca Hertz</p>
+        <span class="ui-li-count">$15.00</span></a></li>
+    </ul>
+    
+  
+  </div>
+  <div data-role="footer">
+    <h4>Pie</h4>
+  </div>
+</div>
+
+</body>
+</html>
