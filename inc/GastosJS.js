@@ -8,7 +8,7 @@
 function addGastosUser(StrId, StrName, StrMatricula, StrSalary ){
 
     $.ajax({
-        url: 'http://10.168.3.250/servicio/Service1.asmx/AddGastos',
+        url: 'http://10.168.3.250/service/Service1.asmx/AddGastos',
         contenType: 'application/xml; charset=utf-8',
         dataType: "xml",
         type: 'POST',
