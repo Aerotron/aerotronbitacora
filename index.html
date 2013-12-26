@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
-<meta name="viewport" content="width=device-width; text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta name="viewport" content="width=device-width, text/html, charset=utf-8" http-equiv="Content-Type"/>
 <title>Aplic. Web de jQuery Mobile</title>
 <link rel="stylesheet" type="text/css" href="inc/style1.css">
 <link href="jquery-mobile/jquery.mobile-1.4.0.css" rel="stylesheet" type="text/css"/>
@@ -20,7 +20,13 @@ $("#bitacoraForm").validate();
         // Uppercase-ize contents
         this.value = this.value.toLocaleUpperCase();
     });
+	$.mobile.toolbar.prototype.options.addBackBtn = true;
+    $.mobile.toolbar.prototype.options.backBtnText = "Volver";
+    $.mobile.page.prototype.options.theme = "a";
+    $.mobile.defaultPageTransition = "flip";
 });
+
+
 </script>
 
 </head> 
@@ -44,9 +50,7 @@ $("#bitacoraForm").validate();
 	  <a href="#home" data-role="button" data-icon="home">Login</a>
       	
 	</div>
-	<div data-role="footer">
-		<h4>Pie de página</h4>
-	</div>
+	
 </div>
 
 <div data-role="page" id="home" data-dom-cache="true" data-add-back-btn="false">
@@ -112,7 +116,7 @@ $("#bitacoraForm").validate();
 	<span>Copiloto</span>
  		<input type="text" id="copiloto" class="uppercase" required>
      <span>Matricula</span>
- 		<input type="text" id="matricula" value="XAPVR" class="uppercase" required>
+ 		<input type="text" id="matricula" value="XAUSV" class="uppercase" required>
  		
  		  <label for="date">Fecha:</label>
  		  <input type="date" name="date" id="date" value=""  />
