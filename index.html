@@ -4,9 +4,9 @@
 <meta name="viewport" content="width=device-width; text/html; charset=utf-8" http-equiv="Content-Type"/>
 <title>Aplic. Web de jQuery Mobile</title>
 <link rel="stylesheet" type="text/css" href="inc/style1.css">
-<link href="jquery-mobile/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
-<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
-<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<link href="jquery-mobile/jquery.mobile-1.4.0.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.9.1.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.4.0.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 <script src="inc/cirrus.js" type="text/javascript"></script>
 <script src="inc/GastosJS.js" type="text/javascript"></script>
@@ -54,11 +54,10 @@ $("#bitacoraForm").validate();
 		<h1>Aerotron</h1>
 	</div>
 	<div data-role="content">
-	 <div><p>Nombre: <span id="NamePiloto">Joshua Peña</span></p></div>
+	 <div><p>Nombre: <span id="NamePiloto"></span></p></div>
 	 	<div>
 	   		<ul data-role="listview" data-filter="true">
-     			<li><a href="#gastos" rel="external">Informe de Gastos</a><span class="ui-li-count">10</span></li>
-    			<li><a href="#bitacoras">Bitacoras</a><span class="ui-li-count">8</span></li>
+     	<li><a href="#bitacoras">Bitacoras</a><span class="ui-li-count">8</span></li>
     			<li data-icon="gear"> <a href="#Perfil" runat="server">Perfil</a>
     			</li>
     		</ul>
@@ -97,8 +96,8 @@ $("#bitacoraForm").validate();
 		<a href="#Cirrus" data-role="button" data-icon="grid">XAUSV (cirrus)</a>
         <a href="#" data-role="button" data-icon="grid">XAPVR (Citation) </a>	
 	</div>
-	<div data-role="footer">
-		<h4>Pie de página</h4>
+	<div data-role="footer" data-position="fixed">
+		
 	</div>
 </div>
 <div data-role="page" id="Cirrus" data-add-back-btn="true" >
@@ -126,17 +125,23 @@ $("#bitacoraForm").validate();
           </form>
           <a onclick="saveLogbook1();" href="#Cirrus2" data-role="button" >Crear Bitacora</a>
   </div>
-  <div data-role="footer">
-         <ul data-role="listview" data-inset="true">
+  <div data-role="footer" data-position="fixed">
+      <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
         <li><a href="#Cirrus">Info</a></li>
         <li><a href="#Cirrus2">Vuelo</a></li>
         <li><a href="#Cirrus3">Lecturas</a></li>
+        </ul>
+        </div>
+        <div data-role="navbar">
+        <ul data-role="listview" data-inset="true">
         <li><a href="#Cirrus4">Pax</a></li>
         <li><a href="#Cirrus5">Mantenimiento</a></li>
         <li><a href="#Submit">Página</a></li>
       </ul>
      
     </div>
+     </div>
   </div>
 </div>
 <div data-role="page" id="Cirrus2" data-add-back-btn="true">
@@ -272,9 +277,13 @@ $("#bitacoraForm").validate();
   <div data-role="footer" data-position="fixed" >
     <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus">Info</a></li>
+        <li><a href="#Cirrus" class="ui-btn-active ui-state-persist">Info</a></li>
         <li><a href="#Cirrus2">Vuelo</a></li>
         <li><a href="#Cirrus3">Lecturas</a></li>
+        </ul>
+        </div>
+        <div data-role="navbar">
+        <ul data-role="listview" data-inset="true">
         <li><a href="#Cirrus4">Pax</a></li>
         <li><a href="#Cirrus5">Mantenimiento</a></li>
         <li><a href="#Submit">Página</a></li>
@@ -352,16 +361,22 @@ $("#bitacoraForm").validate();
     </div>
     <a href="#Cirrus4" data-role="button" >Siguiente</a>
       </div>
-  <div data-role="footer">
-        <ul data-role="listview" data-inset="true">
+  <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
         <li><a href="#Cirrus">Info</a></li>
         <li><a href="#Cirrus2">Vuelo</a></li>
         <li><a href="#Cirrus3">Lecturas</a></li>
+        </ul>
+        </div>
+        <div data-role="navbar">
+        <ul data-role="listview" data-inset="true">
         <li><a href="#Cirrus4">Pax</a></li>
         <li><a href="#Cirrus5">Mantenimiento</a></li>
         <li><a href="#Submit">Página</a></li>
       </ul>
      
+    </div>
     </div>
   </div>
 </div>
@@ -435,217 +450,22 @@ $("#bitacoraForm").validate();
     </div>
   <a href="#Cirrus" data-role="button" >Siguiente</a>
   </div>
-  <div data-role="footer">
-    <h4>Pie</h4>
-  </div>
-</div>
-
-
-<div data-role="page" id="bitacoraxapvr" data-add-back-btn="true">
-	<div data-role="header">
-		<h1>Página dos</h1>
-	</div>
-	<div data-role="content">
-    <form id="BitacoraForm" method="post" action novalidate>
-    <fieldset>
-    <span>Capitan</span>	
-		<input type="text" id="capitan" class="uppercase" minlength="2" required >
-	<span>Copiloto</span>
- 		<input type="text" id="copiloto" class="uppercase" required>
-     <span>Matricula</span>
- 		<input type="text" id="matricula" value="XAPVR" class="uppercase" required>
- 		
- 		  <label for="date">Fecha:</label>
- 		  <input type="date" name="date" id="date" value=""  />
-			<div data-role="collapsible-set">
- 		  <div data-role="collapsible">
- 		    <h3>Encabezado</h3>
- 		    <p>Contenido</p>
-	      </div>
- 		  <div data-role="collapsible" data-collapsed="true">
- 		    <h3>Encabezado</h3>
- 		    <div>
-            <label for="n1">N1</label>
-            <input type="text" id="n1" class="uppercase">
-            </div>
-            <div>
-            <label for="n2">N1</label>
-            <input type="text" id="n2" class="uppercase">
-            </div>
-	      </div>
- 		  <div data-role="collapsible" data-collapsed="true">
- 		    <h3>Encabezado</h3>
- 		    <p>Contenido</p>
-	      </div>
-	  </div>
-       <input type="button" data-role="button" id="BtnSubmit" value="submit" >  
-      </fieldset></form>  	
-	</div>
-	<div data-role="footer">
-		<h4>Pie de página</h4>
-	</div>
-</div>
-
-<div data-role="page" id="gastos" data-add-back-btn="true">
-	<div data-role="header">
-		<h1>Gastos de Joshua</h1>
-	</div>
-	<div data-role="content">
-        <a href="#gastoNuevo" data-role="button" data-icon="plus">Agregar Nuevo</a>
-        <div>
-            <a href="#page" data-role="button" data-icon="refresh">Sincronizar Server</a>
-             <div data-role="fieldcontain">
-              <label for="datetime">Ultima Sincronizacion:</label>
-              <input type="datetime" name="datetime" id="datetime" value="01/01/1900"  />
-            </div>
-            </div>
-            <div>
-            <span>&nbsp;</span>
-            <ul data-role="listview" id="lstgastos" data-filter="true">
-            	<li><a href="#"> <h3>XAPVR</h3> <p>Viaje a las Estrellas</p></a></li>
-                <li><a href="#"> <h3>NCC-1701</h3> <p>Into the Darkness</p></a></li>
-                
-            </ul>
-        </div>
-	</div>
-	<div data-role="footer">
-		<ul data-role="listview" data-inset="true">
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
         <li><a href="#Cirrus">Info</a></li>
         <li><a href="#Cirrus2">Vuelo</a></li>
         <li><a href="#Cirrus3">Lecturas</a></li>
+        </ul>
+        </div>
+        <div data-role="navbar">
+        <ul data-role="listview" data-inset="true">
         <li><a href="#Cirrus4">Pax</a></li>
         <li><a href="#Cirrus5">Mantenimiento</a></li>
         <li><a href="#Submit">Página</a></li>
       </ul>
-     
-    </div>
-	</div>
-</div>
-
-<div data-role="page" id="gastoNuevo" data-add-back-btn="true">
-	<div data-role="header">
-		<h1>Nuevo Gasto</h1>
-	</div>
-	<div data-role="content">	
-		<div data-role="fieldcontain">
-	    <label for="textinput2">Nombre:</label>
-	    <input type="text" name="textinput2" id="nombreg" value=""  />
-        </div>
-		
-        <div data-role="fieldcontain">
-         <label for="Titulo">Titulo:</label>
-	    <input type="text" name="Titulo" id="titulog" value=""  />
-      </div>	
-        
-	    <div data-role="fieldcontain">
-         <label for="Ruta">Ruta:</label>
-	    <input type="text" name="Ruta" id="Ruta" value=""  />
-      </div>	
-      <div data-role="fieldcontain">
-		  <label for="date2">Fecha:</label>
-		  <input type="date" name="date2" id="date2" value=""  />
-	  </div>
-      	<div data-role="fieldcontain">
-	      <label for="selectmenu" class="select">Matricula:</label>
-	      <select name="selectmenu" id="selectmatricula">
-	        <option value="option1">XAPVR</option>
-	        <option value="option2">XAUQK</option>
-	        <option value="option3">Opción 3</option>
-          </select>
-         </div>
-      	<a href="#" data-role="button" onClick="addGastosUser(1,'jjp','Test app',1);">Botón</a>	
-         
-         <div data-role="fieldcontain">
-          <a href="#gastoDetalle"  type="button" data-role="button" id="crearInforme" value="Crear Informe" data-icon="plus">Crear Informe</a>
-          <a href="#gastos"  type="button" data-role="button" id="cancelarInforme" data-icon="delete">Cancelar</a>
-          </div>
-  </div>
-	<div data-role="footer">
-		<h4>Pie de página</h4>
-	</div>
-</div>
-
-<div data-role="page" id="agregarDetalle" data-add-back-btn="true">
-	<div data-role="header">
-		<h1 id="Usuario">Joshua Peña</h1>
-        <h3 id="tituloGasto"><span>Id Informe: 86 </span>
-        Titulo: VIaje a las Estrellas</h3>
-	</div>
-	<div data-role="content">
-	  <div data-role="fieldcontain">
-	    <label for="fechaGasto">Fecha:</label>
-	    <input type="date" name="fechaGasto" id="fechaGasto" value=""  />
-      </div>
-	  <div data-role="fieldcontain">
-	    <label for="lugar">Donde se Gasto:</label>
-	    <input type="text" name="lugar" id="lugar" value=""  />
-      </div>
-	  <div data-role="fieldcontain">
-	    <label for="textinput3">Importe:</label>
-	    <input type="text" name="textinput3" id="textinput3" value=""  />
-      </div>
-	  <div data-role="fieldcontain">
-	    <label for="textinput4">Referencia:</label>
-	    <input type="text" name="textinput4" id="textinput4" value=""  />
-      </div>
-	 
-	  <div data-role="fieldcontain">
-	    <label for="selectmenu" class="select">Concepto:</label>
-	    <select name="selectmenu" id="selectmenu">
-	      <option value="option1">Opción 1</option>
-	      <option value="option2">Opción 2</option>
-	      <option value="option3">Opción 3</option>
-        </select>
-      </div>
-	  <div data-role="fieldcontain">
-	    <label for="selectmenu2" class="select">Forma de Pago:</label>
-	    <select name="selectmenu2" id="selectmenu2">
-	      <option value="option1">Opción 1</option>
-	      <option value="option2">Opción 2</option>
-	      <option value="option3">Opción 3</option>
-        </select>
-      </div>
-	  <div data-role="fieldcontain">
-	    <label for="selectmenu3" class="select">Tipo de Moneda:</label>
-	    <select name="selectmenu3" id="selectmenu3">
-	      <option value="option1">Opción 1</option>
-	      <option value="option2">Opción 2</option>
-	      <option value="option3">Opción 3</option>
-        </select>
-      </div>
-	<a href="#gastoDetalle" data-role="button" data-icon="plus">Agregar</a>
-	</div>
-	<div data-role="footer">
-		<h4>Pie de página</h4>
-	</div>
-</div>
-<div data-role="page" id="gastoDetalle" data-add-back-btn="true">
-  <div data-role="header">
-    <h1>Encabezado</h1>
-  </div>
-  <div data-role="content">
-   <a href="#agregarDetalle"  type="button" data-role="button" id="crearInforme" value="Crear Informe" data-icon="plus">Agregar Detalle</a>
-    <ul data-role="listview" data-inset="true">
-      <li><a href="#">
-        <h3>1233456</h3>
-        <p>Cancun Hotel Mayan Palace</p>
-        <span class="ui-li-count">$300.00</span></a></li>
-      <li><a href="#">
-        <h3>654321</h3>
-        <p>Las Vegas McDonalds</p>
-        <span class="ui-li-count">$2,350.00</span></a></li>
-      <li><a href="#">
-        <h3>A-765</h3>
-        <p>Toluca Hertz</p>
-        <span class="ui-li-count">$15.00</span></a></li>
-    </ul>
-    
-  
-  </div>
-  <div data-role="footer">
-    <h4>Pie</h4>
+     </div>
   </div>
 </div>
-
 </body>
 </html>
