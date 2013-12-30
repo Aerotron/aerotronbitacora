@@ -46,7 +46,7 @@ alert("DEBUGGING: we are in the onBodyLoad() function");
   // this line actually creates the table User if it does not exist and sets up the three columns and their types
   // note the UserId column is an auto incrementing column which is useful if you want to pull back distinct rows
   // easily from the table.
-   tx.executeSql( 'CREATE TABLE IF NOT EXISTS User(UserId INTEGER NOT NULL PRIMARY KEY, FirstName TEXT NOT NULL, LastName TEXT NOT NULL)',
+   tx.executeSql( 'CREATE TABLE IF NOT EXISTS User(UserId INTEGER NOT NULL PRIMARY KEY, FirstName TEXT NOT NULL, LastName TEXT NOT NULL, PassWordd TEXT NOT NULL, Clave TEXT NOT NULL )',
 [],nullHandler,errorHandler);
  },errorHandler,successCallBack);
  
@@ -72,8 +72,9 @@ function ListDBValues() {
       if (result != null && result.rows != null) {
         for (var i = 0; i < result.rows.length; i++) {
           var row = result.rows.item(i);
-          $('#lbUsers').append('<br>' + row.UserId + '. ' +
-row.FirstName+ ' ' + row.LastName);
+          $('#lbUsers').append('<option value="'+ row.UserId +'">' + row.UserId + '. ' +
+row.FirstName+ '</option>');
+            alert(row.UserId);
         }
       }
      },errorHandler);
@@ -93,7 +94,7 @@ function AddValueToDB() {
  
 // this is the section that actually inserts the values into the User table
  db.transaction(function(transaction) {
-   transaction.executeSql('INSERT INTO User(FirstName, LastName) VALUES (?,?)',[$('#txFirstName').val(), $('#txLastName').val()],
+   transaction.executeSql('INSERT INTO User(FirstName, LastName, PassWordd, Clave) VALUES (?,?,?,?)',[$('#usrtName').val(), $('#passwordd').val(),$('#passwordd').val(),$('#passwordd').val()],
      nullHandler,errorHandler);
    });
  

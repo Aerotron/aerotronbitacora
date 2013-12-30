@@ -67,3 +67,4 @@ function pDespegueTotal()  {
     document.getElementById("pDespegue").value = (pCarga + pCombustible + pOperacional);
 };
 
+
