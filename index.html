@@ -173,10 +173,10 @@ $("#bitacoraForm").validate();
   <div data-role="footer">
     <div data-role="navbar" >
       <ul data-role="listview" data-inset="true" >
-        <li><a href="#CirrusTramo" data-icon="home" >Info</a></li>
-        <li><a href="#CirrusTramo2" data-icon="star">Vuelo</a></li>
-        <li><a href="#Cirrus2" data-icon="grid">Tramos</a></li>
-        <li><a href="#Cirrus3" data-icon="gear">Mantenimiento</a></li>
+        <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramo" data-icon="star">Vuelo</a></li>
+        <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus5" data-icon="gear">Mantenimiento</a></li>
        </ul>
     </div>
   </div>
@@ -312,23 +312,24 @@ $("#bitacoraForm").validate();
   </div>
   <a href="#CirrusInstumentos1" data-role="button" >Guardar</a>
   </div>
-  <div data-role="footer" data-position="fixed" >
-    <div data-role="navbar" >
+  <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus" class="ui-btn-active ui-state-persist">Info</a></li>
-        <li><a href="#Cirrus2">Vuelo</a></li>
-        <li><a href="#Cirrus3">Lecturas</a></li>
+       <li><a href="#CirrusTramo1">Vuelo Tramo 1</a></li>
+        <li><a href="#CirrusInstumentos1">Lecturas Tramo 1</a></li>
+         <li><a href="#CirrusPax1">Pax Tramo 1</a></li>
         </ul>
         </div>
         <div data-role="navbar">
         <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus4">Pax</a></li>
+        <li><a href="#CirrusTramos">Tramos</a></li>
         <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#Submit">Página</a></li>
+        <li><a href="#Cirrus6">Envio</a></li>
       </ul>
      
     </div>
-  </div>
+    </div>
+</div>
 </div>
 <div data-role="page" id="CirrusInstrumentos1" data-add-back-btn="true">
   <div data-role="header">
@@ -401,19 +402,20 @@ $("#bitacoraForm").validate();
       </div>
   <div data-role="footer" data-position="fixed">
         <div data-role="navbar" >
-			<ul data-role="listview" data-inset="true">
-				<li><a href="#Cirrus">Info</a></li>
-				<li><a href="#Cirrus2">Vuelo</a></li>
-				<li><a href="#Cirrus3">Lecturas</a></li>
-			</ul>
+      <ul data-role="listview" data-inset="true">
+       <li><a href="#CirrusTramo1">Vuelo Tramo 1</a></li>
+        <li><a href="#CirrusInstumentos1">Lecturas Tramo 1</a></li>
+         <li><a href="#CirrusPax1">Pax Tramo 1</a></li>
+        </ul>
         </div>
-		<div data-role="navbar">
-			<ul data-role="listview" data-inset="true">
-				<li><a href="#Cirrus4">Pax</a></li>
-				<li><a href="#Cirrus5">Mantenimiento</a></li>
-				<li><a href="#Submit">Página</a></li>
-			</ul>
-		</div>
+        <div data-role="navbar">
+        <ul data-role="listview" data-inset="true">
+        <li><a href="#CirrusTramos">Tramos</a></li>
+        <li><a href="#Cirrus5">Mantenimiento</a></li>
+        <li><a href="#Cirrus6">Envio</a></li>
+      </ul>
+     
+    </div>
     </div>
 </div>
 <div data-role="page" id="CirrusPax1" data-add-back-btn="true">
@@ -444,33 +446,49 @@ $("#bitacoraForm").validate();
   <a href="#CirrusTramos" data-role="button" >Siguiente</a>
     </div>
   <div data-role="footer">
+  <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
+       <li><a href="#CirrusTramo1">Vuelo Tramo 1</a></li>
+        <li><a href="#CirrusInstumentos1">Lecturas Tramo 1</a></li>
+         <li><a href="#CirrusPax1">Pax Tramo 1</a></li>
+        </ul>
+        </div>
+        <div data-role="navbar">
+        <ul data-role="listview" data-inset="true">
+        <li><a href="#CirrusTramos">Tramos</a></li>
+        <li><a href="#Cirrus5">Mantenimiento</a></li>
+        <li><a href="#Cirrus6">Envio</a></li>
+      </ul>
+     
+    </div>
       </div>
 	 </div>
-     <div data-role="page" id="CirrusTramo2" data-add-back-btn="true">
-  <div data-role="header">
-    <h1>Encabezado</h1>
-  </div>
+<div data-role="page" id="CirrusTramo2" data-add-back-btn="true">
+ 	 <div data-role="header">
+    	<h1>Encabezado</h1>
+  	</div>
+    
   <div data-role="content">
-  <div class="ui-grid-a" >
-    <div class="ui-block-a" >
-    <div class="ui-bar">
-    <label for="De2">(Origen) De:</label>
-    <input type="text" id="De2" class="uppercase" required>
-    </div>
-    </div>
-    <div class="ui-block-b" >
-    <div class="ui-bar">
-    <label for="A2">(Destino) A:</label>
-    <input type="text" id="A2" class="uppercase" required>
-    </div>
-    </div>
+  	<div class="ui-grid-a" >
+    	<div class="ui-block-a" >
+   	 		<div class="ui-bar">
+    			<label for="De2">(Origen) De:</label>
+			    <input type="text" id="De2" class="uppercase" required>
+    		</div>
+    	</div>
+    	<div class="ui-block-b" >
+    		<div class="ui-bar">
+    		<label for="A2">(Destino) A:</label>
+    		<input type="text" id="A2" class="uppercase" required>
+    		</div>
+    	</div>
     </div>
     <div class="ui-grid-b" >
     <div class="ui-block-a" >
-    <div class="ui-bar">
-    <label for="utcSalen2">UTC SALE:</label>
-    <input type="time" datarole="timebox" id="utcSale2" class="uppercase" required >
-    </div>
+    	<div class="ui-bar">
+    		<label for="utcSalen2">UTC SALE:</label>
+    		<input type="time" datarole="timebox" id="utcSale2" class="uppercase" required >
+    	</div>
     </div>
     <div class="ui-block-b">
     <div class="ui-bar">
@@ -484,6 +502,8 @@ $("#bitacoraForm").validate();
     <input type="text" id="calACal2" class="uppercase" value= "" required data-theme="b" readonly>
     </div>
     </div>
+    
+    
     <div class="ui-block-a" >
     <div class="ui-bar">
     <label for="hSale2">H SALE:</label>
@@ -541,7 +561,6 @@ $("#bitacoraForm").validate();
     </div>
     </div>
     <div class="ui-grid-a">
-    
     <div class="ui-block-a" >
     <div class="ui-bar">
     <label for="pDespegue2">P. Despegue:</label>
@@ -554,14 +573,13 @@ $("#bitacoraForm").validate();
     <input type="number" id="MTOW2" class="uppercase" required value ="1542" readonly data-theme="b">
     </div>
     </div>
-    
-    <div class="ui-block-b" >
+    <div class="ui-block-a" >
     <div class="ui-bar">
     <label for="pCargua2">N. Vuelo:</label>
-    <input type="text" id="pCarga2 class="uppercase" required>
+    <input type="text" id="pCarga2" class="uppercase" required>
     </div>
-    </div>
-    <div class="ui-block-a" >
+   	</div>
+    <div class="ui-block-b" >
     <div class="ui-bar">
     <label for="OAT2">OAT:</label>
     <input type="text" id="OAT2" class="uppercase" value= "" required>
@@ -572,26 +590,26 @@ $("#bitacoraForm").validate();
     <label for="Aceite2">Aceite +:</label>
     <input type="text" id="Aceite2" class="uppercase" required>
     </div>
-    </div>
+  </div>
   </div>
   <a href="#CirrusInstumentos2" data-role="button" >Guardar</a>
   </div>
+ 
   <div data-role="footer" data-position="fixed" >
     <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus" class="ui-btn-active ui-state-persist">Info</a></li>
-        <li><a href="#CirrusTramo2">Vuelo</a></li>
-        <li><a href="#CirrusInstumentos2">Lecturas</a></li>
+       <li><a href="#CirrusTramo2">Vuelo Tramo 2</a></li>
+        <li><a href="#CirrusInstumentos2">Lecturas Tramo 2</a></li>
+         <li><a href="#CirrusPax2">Pax Tramo 2</a></li>
         </ul>
         </div>
         <div data-role="navbar">
         <ul data-role="listview" data-inset="true">
-        <li><a href="#CirrusPax2">Pax</a></li>
+        <li><a href="#CirrusTramos">Tramos</a></li>
         <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#CirrusTramos">Página</a></li>
+        <li><a href="#Cirrus6">Envio</a></li>
       </ul>
-     
-    </div>
+     </div>
   </div>
 </div>
 <div data-role="page" id="CirrusInstrumentos2" data-add-back-btn="true">
@@ -663,22 +681,22 @@ $("#bitacoraForm").validate();
     </div>
     <a href="#CirrusPax2" data-role="button" >Siguiente</a>
       </div>
-  <div data-role="footer" data-position="fixed">
-        <div data-role="navbar" >
-			<ul data-role="listview" data-inset="true">
-				<li><a href="#Cirrus">Info</a></li>
-				<li><a href="#Cirrus2">Vuelo</a></li>
-				<li><a href="#Cirrus3">Lecturas</a></li>
-			</ul>
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
+       <li><a href="#CirrusTramo2">Vuelo Tramo 2</a></li>
+        <li><a href="#CirrusInstumentos2">Lecturas Tramo 2</a></li>
+         <li><a href="#CirrusPax2">Pax Tramo 2</a></li>
+        </ul>
         </div>
-		<div data-role="navbar">
-			<ul data-role="listview" data-inset="true">
-				<li><a href="#Cirrus4">Pax</a></li>
-				<li><a href="#Cirrus5">Mantenimiento</a></li>
-				<li><a href="#Submit">Página</a></li>
-			</ul>
-		</div>
-    </div>
+        <div data-role="navbar">
+        <ul data-role="listview" data-inset="true">
+        <li><a href="#CirrusTramos">Tramos</a></li>
+        <li><a href="#Cirrus5">Mantenimiento</a></li>
+        <li><a href="#Cirrus6">Envio</a></li>
+      </ul>
+     </div>
+  </div>
 </div>
 <div data-role="page" id="CirrusPax2" data-add-back-btn="true">
   <div data-role="header">
@@ -707,10 +725,25 @@ $("#bitacoraForm").validate();
     </div>
   <a href="#CirrusTramos" data-role="button" >Siguiente</a>
     </div>
-  <div data-role="footer">
-    
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
+       <li><a href="#CirrusTramo2">Vuelo Tramo 2</a></li>
+        <li><a href="#CirrusInstumentos2">Lecturas Tramo 2</a></li>
+         <li><a href="#CirrusPax2">Pax Tramo 2</a></li>
+        </ul>
+        </div>
+        <div data-role="navbar">
+        <ul data-role="listview" data-inset="true">
+        <li><a href="#CirrusTramos">Tramos</a></li>
+        <li><a href="#Cirrus5">Mantenimiento</a></li>
+        <li><a href="#Cirrus6">Envio</a></li>
+      </ul>
+     </div>
   </div>
   </div>
+  
+  
 <div data-role="page" id="Cirrus5" data-add-back-btn="true">
   <div data-role="header">
     <h1>Mantenimiento</h1>
@@ -767,5 +800,15 @@ $("#bitacoraForm").validate();
      </div>
   </div>
 </div>
+<div data-role="page" id="Cirrus6">
+  <div data-role="header">
+    <h1>Encabezado</h1>
+  </div>
+  <div data-role="content">Contenido</div>
+  <div data-role="footer">
+    <h4>Pie</h4>
+  </div>
+</div>
+
 </body>
 </html>
