@@ -72,7 +72,7 @@ $("#bitacoraForm").validate();
       	</div>
 	</div>
 	<div data-role="footer">
-		<h4>Pie de página</h4>
+		
 	</div>
 </div>
 <div data-role="page" id="Perfil" data-add-back-btn="true">
@@ -87,9 +87,15 @@ $("#bitacoraForm").validate();
   <p>XAVIU</p>
   <p>....</p>
   </div>
-  <div data-role="footer">
-    <h4>Pie</h4>
-  </div>
+  <div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
+        <li><a class="ui-icon-home" href="#Cirrus">Info</a></li>
+        <li><a href="#Cirrus2">Vuelo</a></li>
+        <li><a href="#Cirrus3">Lecturas</a></li>
+        </ul>
+        </div>
+	</div>
 </div>
 
 <div data-role="page" id="bitacoras" data-add-back-btn="true">
@@ -101,7 +107,13 @@ $("#bitacoraForm").validate();
         <a href="#" data-role="button" data-icon="grid">XAPVR (Citation) </a>	
 	</div>
 	<div data-role="footer" data-position="fixed">
-		
+		<div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
+        <li><a href="#Cirrus">Info</a></li>
+        <li><a href="#Cirrus2">Vuelo</a></li>
+        <li><a href="#Cirrus3">Lecturas</a></li>
+        </ul>
+        </div>
 	</div>
 </div>
 <div data-role="page" id="Cirrus" data-add-back-btn="true" >
@@ -127,10 +139,10 @@ $("#bitacoraForm").validate();
           
           </fieldset>
           </form>
-          <a onclick="saveLogbook1();" href="#Cirrus2" data-role="button" >Crear Bitacora</a>
+          <a onclick="saveLogbook1();" href="#CirrusTramos" data-role="button" >Crear Bitacora</a>
   </div>
   <div data-role="footer" data-position="fixed">
-      <div data-role="navbar" >
+    <!--  <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
         <li><a href="#Cirrus">Info</a></li>
         <li><a href="#Cirrus2">Vuelo</a></li>
@@ -143,12 +155,33 @@ $("#bitacoraForm").validate();
         <li><a href="#Cirrus5">Mantenimiento</a></li>
         <li><a href="#Submit">Página</a></li>
       </ul>
-     
+    
     </div>
-     </div>
+     </div> -->
   </div>
 </div>
-<div data-role="page" id="Cirrus2" data-add-back-btn="true">
+<div data-role="page" id="CirrusTramos">
+  <div data-role="header">
+    <h1>Tramos de Bitacora</h1>
+  </div>
+  <div data-role="content">
+  <ul data-role="listview" data-inset="true" >
+        <li><a href="#CirrusTramo" data-icon="home" >Tramo 1</a></li>
+        <li><a href="#CirrusTramo2" data-icon="star">Tramo 2</a></li>
+        </ul>
+ </div>
+  <div data-role="footer">
+    <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true" >
+        <li><a href="#CirrusTramo" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramo2" data-icon="star">Vuelo</a></li>
+        <li><a href="#Cirrus2" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus3" data-icon="gear">Mantenimiento</a></li>
+       </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="CirrusTramo1" data-add-back-btn="true">
   <div data-role="header">
     <h1>Encabezado</h1>
   </div>
@@ -265,18 +298,19 @@ $("#bitacoraForm").validate();
     </div>
     <div class="ui-block-a" >
     <div class="ui-bar">
+
     <label for="solicitado">OAT:</label>
     <input type="text" id="OAT" class="uppercase" value= "" required>
     </div>
     </div>
     <div class="ui-block-b" >
     <div class="ui-bar">
-    <label for="solicitado">Aceite +:</label>
-    <input type="text" id="pCarga" class="uppercase" required>
+    <label for="Aceite">Aceite +:</label>
+    <input type="text" id="Aceite" class="uppercase" required>
     </div>
     </div>
   </div>
-  <a href="#Cirrus3" data-role="button" >Guardar</a>
+  <a href="#CirrusInstumentos1" data-role="button" >Guardar</a>
   </div>
   <div data-role="footer" data-position="fixed" >
     <div data-role="navbar" >
@@ -296,95 +330,93 @@ $("#bitacoraForm").validate();
     </div>
   </div>
 </div>
-<div data-role="page" id="Cirrus3" data-add-back-btn="true">
+<div data-role="page" id="CirrusInstrumentos1" data-add-back-btn="true">
   <div data-role="header">
     <h1>Lectura de Intrumentos</h1>
   </div>
   <div data-role="content">
   <div class="ui-grid-solo">
   <div class="ui-bar">
-    <label for="solicitado">CRUCERO %:</label>
-    <input type="number" id="De" class="uppercase" required>
+    <label for="Crucero">CRUCERO %:</label>
+    <input type="number" id="Crucero" class="uppercase" required>
     </div>
   </div>
   <div class="ui-grid-a" >
       <div class="ui-block-a" >
     <div class="ui-bar">
-    <label for="solicitado">RPM:</label>
-    <input type="text" id="De" class="uppercase" required>
+    <label for="RPM">RPM:</label>
+    <input type="text" id="RPM" class="uppercase" required>
     </div>
     </div>
     <div class="ui-block-b" >
     <div class="ui-bar">
-    <label for="solicitado">MAN. PRESS:</label>
-    <input type="text" id="A" class="uppercase" required>
+    <label for="MANPRESS">MAN. PRESS:</label>
+    <input type="text" id="MANPRESS" class="uppercase" required>
     </div>
     </div>
      <div class="ui-block-a" >
     <div class="ui-bar">
-    <label for="solicitado">OIL TEMP.:</label>
-    <input type="text" id="De" class="uppercase" required>
+    <label for="OILTEMP">OIL TEMP.:</label>
+    <input type="text" id="OILTEMP" class="uppercase" required>
     </div>
     </div>
     <div class="ui-block-b" >
     <div class="ui-bar">
-    <label for="solicitado">OIL PRESS.:</label>
-    <input type="text" id="A" class="uppercase" required>
+    <label for="OILPRESS">OIL PRESS.:</label>
+    <input type="text" id="OILPRESS" class="uppercase" required>
     </div>
     </div>
      <div class="ui-block-a" >
     <div class="ui-bar">
-    <label for="solicitado">EGT:</label>
-    <input type="text" id="De" class="uppercase" required>
+    <label for="EGT">EGT:</label>
+    <input type="text" id="EGT" class="uppercase" required>
     </div>
     </div>
     <div class="ui-block-b" >
     <div class="ui-bar">
-    <label for="solicitado">CHT:</label>
-    <input type="text" id="A" class="uppercase" required>
+    <label for="CHT">CHT:</label>
+    <input type="text" id="CHT" class="uppercase" required>
     </div>
     </div>
      <div class="ui-block-a" >
     <div class="ui-bar">
-    <label for="solicitado">VOLTS:</label>
-    <input type="text" id="De" class="uppercase" required>
+    <label for="VOLTS">VOLTS:</label>
+    <input type="text" id="VOLTS" class="uppercase" required>
     </div>
     </div>
     <div class="ui-block-b" >
     <div class="ui-bar">
-    <label for="solicitado">AMPERS:</label>
-    <input type="text" id="A" class="uppercase" required>
+    <label for="AMPERS">AMPERS:</label>
+    <input type="text" id="AMPERS" class="uppercase" required>
     </div>
     </div>
      <div class="ui-block-a" >
     <div class="ui-bar">
-    <label for="solicitado">FUEL FLOW:</label>
-    <input type="text" id="De" class="uppercase" required>
+    <label for="FUELFLOW">FUEL FLOW:</label>
+    <input type="text" id="FUELFLOW" class="uppercase" required>
     </div>
     </div>
     </div>
-    <a href="#Cirrus4" data-role="button" >Siguiente</a>
+    <a href="#CirrusPax1" data-role="button" >Siguiente</a>
       </div>
   <div data-role="footer" data-position="fixed">
         <div data-role="navbar" >
-      <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus">Info</a></li>
-        <li><a href="#Cirrus2">Vuelo</a></li>
-        <li><a href="#Cirrus3">Lecturas</a></li>
-        </ul>
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#Cirrus">Info</a></li>
+				<li><a href="#Cirrus2">Vuelo</a></li>
+				<li><a href="#Cirrus3">Lecturas</a></li>
+			</ul>
         </div>
-        <div data-role="navbar">
-        <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus4">Pax</a></li>
-        <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#Submit">Página</a></li>
-      </ul>
-     
+		<div data-role="navbar">
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#Cirrus4">Pax</a></li>
+				<li><a href="#Cirrus5">Mantenimiento</a></li>
+				<li><a href="#Submit">Página</a></li>
+			</ul>
+		</div>
     </div>
-    </div>
-  </div>
 </div>
-<div data-role="page" id="Cirrus4" data-add-back-btn="true">
+<div data-role="page" id="CirrusPax1" data-add-back-btn="true">
   <div data-role="header">
     <h1>PAX</h1>
   </div>
@@ -392,29 +424,293 @@ $("#bitacoraForm").validate();
     <div data-role="fieldcontain">
       <fieldset data-role="controlgroup">
         <legend>Es un tramo Ferry?:</legend>
-        <input type="checkbox" name="checkbox1" id="checkbox1_0" class="custom" value="" />
-        <label for="checkbox1_0">Ferry</label>
+        <input type="checkbox" name="checkbox1" id="Ferry1" class="custom" value="" />
+        <label for="Ferry1">Ferry</label>
       </fieldset>
     </div>
     <p><strong>PAX:</strong></p>
     <div data-role="fieldcontain">
-      <label for="textinput5">1:</label>
-      <input type="text" name="textinput5" id="textinput5" value=""  />
+      <label for="Pax1_1">1:</label>
+      <input type="text" name="Pax1_1" id="Pax1_1" value=""  />
     </div>
     <div data-role="fieldcontain">
-      <label for="textinput5">2:</label>
-      <input type="text" name="textinput5" id="textinput5" value=""  />
+      <label for="Pax1_2">2:</label>
+      <input type="text" name="Pax1_2" id="Pax1_2" value=""  />
     </div>
     <div data-role="fieldcontain">
-      <label for="textinput5">3:</label>
-      <input type="text" name="textinput5" id="textinput5" value=""  />
+      <label for="Pax1_3">3:</label>
+      <input type="text" name="Pax1_3" id="Pax1_3" value=""  />
     </div>
-  <a href="#Cirrus5" data-role="button" >Siguiente</a>
+  <a href="#CirrusTramos" data-role="button" >Siguiente</a>
     </div>
   <div data-role="footer">
-    <h4>Pie</h4>
+      </div>
+	 </div>
+     <div data-role="page" id="CirrusTramo2" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>Encabezado</h1>
+  </div>
+  <div data-role="content">
+  <div class="ui-grid-a" >
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="De2">(Origen) De:</label>
+    <input type="text" id="De2" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="A2">(Destino) A:</label>
+    <input type="text" id="A2" class="uppercase" required>
+    </div>
+    </div>
+    </div>
+    <div class="ui-grid-b" >
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="utcSalen2">UTC SALE:</label>
+    <input type="time" datarole="timebox" id="utcSale2" class="uppercase" required >
+    </div>
+    </div>
+    <div class="ui-block-b">
+    <div class="ui-bar">
+    <label for="utcLlega2">UTC LLEGA:</label>
+    <input type="time" id="utcLlega2" class="uppercase" required onChange="calACalinput();">
+    </div>
+    </div>
+    <div class="ui-block-c" >
+    <div class="ui-bar">
+    <label for="calACal2">Cal. A Cal.:</label>
+    <input type="text" id="calACal2" class="uppercase" value= "" required data-theme="b" readonly>
+    </div>
+    </div>
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="hSale2">H SALE:</label>
+    <input type="number" id="hSale2" class="uppercase" required onChange="tVueloTotal();" >
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="hLlega2">H LLEGA:</label>
+    <input type="number" id="hLlega2" class="uppercase" required onChange="tVueloTotal();">
+    </div>
+    </div>
+    <div class="ui-block-c" >
+    <div class="ui-bar">
+    <label for="tVuelo2">T VUELO.:</label>
+    <input type="number" id="tVuelo2" class="uppercase" value= "" required data-theme="b" readonly>
+    </div>
+    </div>
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="cSale2">C.Sale(Gal):</label>
+    <input type="number" id="cSale2" class="uppercase" value= "" required onChange="ConsumoGas();">
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="cLlega2">C.Llega(Gal):</label>
+    <input type="number" id="cLlega2" class="uppercase" required onChange="ConsumoGas();">
+    </div>
+    </div>
+    <div class="ui-block-c" >
+    <div class="ui-bar">
+    <label for="Consumo2">Consumo:</label>
+    <input type="number" id="Consumo2" class="uppercase" value= "" data-theme="b" required readonly>
+    </div>
+    </div>
+    
+  <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="pCarga2">P. Carga(kg):</label>
+    <input type="number" id="pCarga2" class="uppercase" value= "" required onChange="pDespegueTotal();">
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="pComust2">P. Combustible:</label>
+    <input type="number" id="pCombust2" class="uppercase" required readonly data-theme="b" onChange="pDespegueTotal();">
+    </div>
+    </div>
+    <div class="ui-block-c" >
+    <div class="ui-bar">
+    <label for="pOper2">P. Oper (Kg):</label>
+    <input type="number" id="pOper2" class="uppercase" required value="1084" readonly data-theme="b">
+    </div>
+    </div>
+    </div>
+    <div class="ui-grid-a">
+    
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="pDespegue2">P. Despegue:</label>
+    <input type="number" id="pDespegue2" class="uppercase" value= "" required readonly data-theme="b">
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="MTOW2">MTOW:</label>
+    <input type="number" id="MTOW2" class="uppercase" required value ="1542" readonly data-theme="b">
+    </div>
+    </div>
+    
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="pCargua2">N. Vuelo:</label>
+    <input type="text" id="pCarga2 class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="OAT2">OAT:</label>
+    <input type="text" id="OAT2" class="uppercase" value= "" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="Aceite2">Aceite +:</label>
+    <input type="text" id="Aceite2" class="uppercase" required>
+    </div>
+    </div>
+  </div>
+  <a href="#CirrusInstumentos2" data-role="button" >Guardar</a>
+  </div>
+  <div data-role="footer" data-position="fixed" >
+    <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true">
+        <li><a href="#Cirrus" class="ui-btn-active ui-state-persist">Info</a></li>
+        <li><a href="#CirrusTramo2">Vuelo</a></li>
+        <li><a href="#CirrusInstumentos2">Lecturas</a></li>
+        </ul>
+        </div>
+        <div data-role="navbar">
+        <ul data-role="listview" data-inset="true">
+        <li><a href="#CirrusPax2">Pax</a></li>
+        <li><a href="#Cirrus5">Mantenimiento</a></li>
+        <li><a href="#CirrusTramos">Página</a></li>
+      </ul>
+     
+    </div>
   </div>
 </div>
+<div data-role="page" id="CirrusInstrumentos2" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>Lectura de Intrumentos</h1>
+  </div>
+  <div data-role="content">
+  <div class="ui-grid-solo">
+  <div class="ui-bar">
+    <label for="Crucero2">CRUCERO %:</label>
+    <input type="number" id="Crucero2" class="uppercase" required>
+    </div>
+  </div>
+  <div class="ui-grid-a" >
+      <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="RPM2">RPM:</label>
+    <input type="text" id="RPM2" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="MANPRESS2">MAN. PRESS:</label>
+    <input type="text" id="MANPRESS2" class="uppercase" required>
+    </div>
+    </div>
+     <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="OILTEMP2">OIL TEMP.:</label>
+    <input type="text" id="De" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="OILPRESS2">OIL PRESS.:</label>
+    <input type="text" id="OILPRESS2" class="uppercase" required>
+    </div>
+    </div>
+     <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="EGT2">EGT:</label>
+    <input type="text" id="EGT2" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="CHT2">CHT:</label>
+    <input type="text" id="CHT2" class="uppercase" required>
+    </div>
+    </div>
+     <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="VOLTS2">VOLTS:</label>
+    <input type="text" id="VOLTS2" class="uppercase" required>
+    </div>
+    </div>
+    <div class="ui-block-b" >
+    <div class="ui-bar">
+    <label for="AMPERS2">AMPERS:</label>
+    <input type="text" id="AMPERS2" class="uppercase" required>
+    </div>
+    </div>
+     <div class="ui-block-a" >
+    <div class="ui-bar">
+    <label for="FUELFLOW2">FUEL FLOW:</label>
+    <input type="text" id="FUELFLOW2" class="uppercase" required>
+    </div>
+    </div>
+    </div>
+    <a href="#CirrusPax2" data-role="button" >Siguiente</a>
+      </div>
+  <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" >
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#Cirrus">Info</a></li>
+				<li><a href="#Cirrus2">Vuelo</a></li>
+				<li><a href="#Cirrus3">Lecturas</a></li>
+			</ul>
+        </div>
+		<div data-role="navbar">
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#Cirrus4">Pax</a></li>
+				<li><a href="#Cirrus5">Mantenimiento</a></li>
+				<li><a href="#Submit">Página</a></li>
+			</ul>
+		</div>
+    </div>
+</div>
+<div data-role="page" id="CirrusPax2" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>PAX</h1>
+  </div>
+  <div data-role="content">
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup">
+        <legend>Es un tramo Ferry?:</legend>
+        <input type="checkbox" name="checkbox1" id="Ferry2" class="custom" value="" />
+        <label for="Ferry2">Ferry</label>
+      </fieldset>
+    </div>
+    <p><strong>PAX:</strong></p>
+    <div data-role="fieldcontain">
+      <label for="Pax2_1">1:</label>
+      <input type="text" name="Pax2_1" id="Pax2_1" value=""  />
+    </div>
+    <div data-role="fieldcontain">
+      <label for="Pax2_2">2:</label>
+      <input type="text" name="Pax2_2" id="Pax2_2" value=""  />
+    </div>
+    <div data-role="fieldcontain">
+      <label for="Pax2_3">3:</label>
+      <input type="text" name="Pax2_3" id="Pax2_3" value=""  />
+    </div>
+  <a href="#CirrusTramos" data-role="button" >Siguiente</a>
+    </div>
+  <div data-role="footer">
+    
+  </div>
+  </div>
 <div data-role="page" id="Cirrus5" data-add-back-btn="true">
   <div data-role="header">
     <h1>Mantenimiento</h1>
