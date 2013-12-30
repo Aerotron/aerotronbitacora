@@ -94,7 +94,7 @@ function AddValueToDB() {
  
 // this is the section that actually inserts the values into the User table
  db.transaction(function(transaction) {
-   transaction.executeSql('INSERT INTO User(FirstName, LastName, PassWordd, Clave) VALUES (?,?,?,?)',[$('#usrtName').val(), $('#passwordd').val(),$('#passwordd').val(),$('#passwordd').val()],
+   transaction.executeSql('INSERT INTO User(FirstName, LastName, PassWordd, Clave) VALUES (?,?,?,?)',[$('#usrName').val(), $('#passwordd').val(),$('#passwordd').val(),$('#passwordd').val()],
      nullHandler,errorHandler);
    });
  
