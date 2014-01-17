@@ -13,23 +13,15 @@ function errorHandler(transaction, error) {
 }
  
 // this is called when a successful transaction happens
-function successCallBack() {
-   alert("DEBUGGING: success");
- 
-}
+function successCallBack() {};
  
 function nullHandler(){};
  
 // called when the application loads
 function onBodyLoad(){
-// This alert is used to make sure the application is loaded correctly
-// you can comment this out once you have the application working 
-alert("DEBUGGING: we are in the onBodyLoad() function");
- 
+
  if (!window.openDatabase) {
-   // not all mobile devices support databases  if it does not, the following alert will display
-   // indicating the device will not be albe to run this application
-   alert('Databases are not supported in this browser.');
+    alert('Databases are not supported in this browser.');
    return;
  }
  
@@ -39,19 +31,20 @@ alert("DEBUGGING: we are in the onBodyLoad() function");
  
 // this line will try to create the table User in the database just created/openned
  db.transaction(function(tx){
- 
-  // you can uncomment this next line if you want the User table to be empty each time the application runs
-  // tx.executeSql( 'DROP TABLE User',nullHandler,nullHandler);
- 
-  // this line actually creates the table User if it does not exist and sets up the three columns and their types
-  // note the UserId column is an auto incrementing column which is useful if you want to pull back distinct rows
-  // easily from the table.
-   tx.executeSql( 'CREATE TABLE IF NOT EXISTS User(UserId INTEGER NOT NULL PRIMARY KEY, FirstName TEXT NOT NULL, LastName TEXT NOT NULL, PassWordd TEXT NOT NULL, Clave TEXT NOT NULL )',
+ tx.executeSql( 'CREATE TABLE IF NOT EXISTS UserBitacoras(UserId INTEGER NOT NULL PRIMARY KEY, Name TEXT, PassWordd TEXT, Clave TEXT, Password TEXT, Correo TEXT, Licence TEXT)',
 [],nullHandler,errorHandler);
  },errorHandler,successCallBack);
- 
+
+    db.transaction(function(tx){
+        // you can uncomment this next line if you want the User table to be empty each time the application runs
+        // tx.executeSql( 'DROP TABLE User',nullHandler,nullHandler);
+        tx.executeSql( 'CREATE TABLE IF NOT EXISTS Prevuelo(UserId INTEGER NOT NULL PRIMARY KEY, Name TEXT NOT NULL, Licence TEXT NOT NULL )',
+            [],nullHandler,errorHandler);
+    },errorHandler,successCallBack);
+    StartLogin();
+    ListDBValues();
 }
- 
+
 // list the values in the database to the screen using jquery to update the #lbUsers element
 function ListDBValues() {
  
@@ -59,31 +52,68 @@ function ListDBValues() {
   alert('Databases are not supported in this browser.');
   return;
  }
- 
 // this line clears out any content in the #lbUsers element on the page so that the next few lines will show updated
 // content and not just keep repeating lines
- $('#lbUsers').html('');
- 
+ $('#PrevueloSelect').html('');
 // this next section will select all the content from the User table and then go through it row by row
 // appending the UserId  FirstName  LastName to the  #lbUsers element on the page
  db.transaction(function(transaction) {
-   transaction.executeSql('SELECT * FROM User;', [],
+   transaction.executeSql('SELECT * FROM Prevuelo;', [],
      function(transaction, result) {
+         $('#PrevueloSelect').append('<option value="'+ $('#PerfilLicencia').val() +'">' + $('#PerfilNombre').val() + '</option>');
       if (result != null && result.rows != null) {
         for (var i = 0; i < result.rows.length; i++) {
           var row = result.rows.item(i);
-          $('#lbUsers').append('<option value="'+ row.UserId +'">' + row.UserId + '. ' +
-row.FirstName+ '</option>');
-            alert(row.UserId);
+          $('#PrevueloSelect').append('<option value="'+ row.Licence +'">' + row.Name + '</option>');
         }
       }
      },errorHandler);
  },errorHandler,nullHandler);
  
  return;
- 
+ } ;
+
+function agregarMecanico(user,licencia) {
+
+    if (!window.openDatabase) {
+        alert('Databases are not supported in this browser.');
+        return;
+    }
+// this is the section that actually inserts the values into the User table
+    db.transaction(function(transaction) {
+        transaction.executeSql('INSERT INTO Prevuelo(Name, Licence) VALUES (?,?)',[user,licencia],
+            nullHandler,errorHandler);
+    });
+
+    return false;
+  } ;
+function agregarUser(Nombre, Licencia, PassWord, Clave, Correo){
+    db.transaction(function(transaction) {
+        transaction.executeSql('INSERT INTO UserBitacoras(Name, PassWord, Clave, Correo ,Licence ) VALUES (?,?,?,?,?)',[Nombre,PassWord,Clave,Correo,Licencia],
+            nullHandler,errorHandler);
+    });
 }
- 
+function BorrarUsuario () {
+    db.transaction(function(transaction) {
+        transaction.executeSql('DELETE * from UserBitacoras',
+            nullHandler,errorHandler);
+
+    });
+    db.transaction(function(tx){
+        tx.executeSql( 'DROP TABLE UserBitacoras' ,
+            [],nullHandler,errorHandler);
+    },errorHandler,successCallBack);
+    db.transaction(function(tx){
+        tx.executeSql( 'CREATE TABLE IF NOT EXISTS UserBitacoras(UserId INTEGER NOT NULL PRIMARY KEY, Name TEXT, PassWordd TEXT, Clave TEXT, Password TEXT, Correo TEXT, Licence TEXT)',
+            [],nullHandler,errorHandler);
+    },errorHandler,successCallBack);
+}
+function BorrarMecanicos () {
+    db.transaction(function(transaction) {
+        transaction.executeSql('DELETE from Prevuelo',
+            nullHandler,errorHandler);
+    });
+}
 // this is the function that puts values into the database using the values from the text boxes on the screen
 function AddValueToDB() {
  
@@ -99,9 +129,58 @@ function AddValueToDB() {
    });
  
 // this calls the function that will show what is in the User table in the database
- ListDBValues();
+
  
  return false;
  
+};
+
+function resetDatabase (){
+    tx.executeSql( 'DROP TABLE UserBitacoras',nullHandler,nullHandler);
+    tx.executeSql( 'DROP TABLE Prevuelo',nullHandler,nullHandler);
+
+
 }
+function ListMecanicos() {
+
+    db.transaction(function(transaction) {
+        transaction.executeSql('SELECT * FROM Prevuelo;', [],
+            function(transaction, result) {
+                if (result != null && result.rows != null) {
+                    for (var i = 0; i < result.rows.length; i++) {
+                        var row = result.rows.item(i);
+
+                      alert(row.Name);
+                    }
+                }
+            },errorHandler);
+    },errorHandler,nullHandler);
+
+    return;
+};
+
+function StartLogin () {
+    db.transaction(function(transaction) {
+        transaction.executeSql('SELECT * FROM UserBitacoras;', [],
+            function(transaction, result) {
+                 if (result != null && result.rows != null) {
+                    var row = result.rows.item(0);
+                    document.getElementById("PerfilNombre").value = row.Name;
+                    document.getElementById("PerfilLicencia").value = row.Licence;
+                    document.getElementById("PerfilClave").value = row.Clave;
+                    document.getElementById("PerfilCorreo").value = row.Correo;
+                    document.getElementById("usrName").value = row.Clave;
+                    document.getElementById("passwordd").value = row.Pass;
+                     $('#usrName').disabled = true;
+                     $('#passwordd').disabled = true;
+
+                }
+                else {
+                    alert("Not logged in ");
+                }
+            },errorHandler);
+    },errorHandler,nullHandler);
+
+    return;
+} ;
  

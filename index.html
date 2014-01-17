@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, text/html, charset=utf-8" http-equiv="Content-Type"/>
-<title>Aplic. Web de jQuery Mobile</title>
+<title>Bitacoras de Aerotron</title>
 <link rel="stylesheet" type="text/css" href="inc/style1.css">
 <link href="jquery-mobile/jquery.mobile-1.4.0.css" rel="stylesheet" type="text/css"/>
 <script src="jquery-mobile/jquery-1.9.1.js" type="text/javascript"></script>
@@ -47,25 +47,12 @@ onBodyLoad();
       </div>
 	  <div data-role="fieldcontain">
 	    <label for="passwordd">Contraseña:</label>
-	    <input type="password" name="passwordinput" id="passwordd" value=""  />  </div>
-	    <div data-role="fieldcontain">
-	      <label for="selectmenu" class="select">Opciones:</label>
-	      <select name="selectmenu" id="lbUsers">
-        
-                    </select>
-        </div>
-	    <div data-role="fieldcontain">
-	      <label for="selectmenu" class="select">Opciones:</label>
-	      <select name="selectmenu" id="selectmenu">
-	        <option value="option1">Opción 1</option>
-	        <option value="option2">Opción 2</option>
-	        <option value="option3">Opción 3</option>
-          </select>
-      </div>
-<a href="#" data-role="button" onClick="AddValueToDB(); ">Botón</a> <a href="#home" data-role="button" data-icon="home">Login</a>
-      	
-	</div>
-	
+	    <input type="password" name="passwordd" id="passwordd" value=""  />  </div>
+	   <div data-role="fieldcontain">
+	      
+<a href="#" data-role="button" onClick="Login(); ">Botón</a><a href="#home" data-role="button" data-icon="home">Login</a>
+     </div>
+</div>
 </div>
 
 <div data-role="page" id="home" data-dom-cache="true" data-add-back-btn="false">
@@ -83,7 +70,7 @@ onBodyLoad();
     	</div>
     <div class="ui-body">
     <span>&nbsp;</span>
-    <a href="#page" data-role="button" data-icon="delete">Log out</a>
+    <a href="#page" data-role="button" data-icon="delete" onClick="Logout();">Log out</a>
       	</div>
 	</div>
 	<div data-role="footer">
@@ -92,22 +79,36 @@ onBodyLoad();
 </div>
 <div data-role="page" id="Perfil" data-add-back-btn="true">
   <div data-role="header">
-    <h1>Encabezado</h1>
+    <h1>Perfil del Usuario</h1>
   </div>
   <div data-role="content">
-  <a href="#page" data-role="button" data-icon="delete">Borrar Datos y Resincronizar</a>
-  <p>Nombre: Joshua Peña</p>
-  <p>Matriculas asignadas:</p>
-  <p>XAPVR</p>
-  <p>XAVIU</p>
-  <p>....</p>
+  <a href="#" onClick="BorrarMecanicos()" data-role="button" data-icon="refresh">Borrar Mecanicos</a>
+  <a href="#" onClick="addMecanicos()" data-role="button" data-icon="refresh">Obtener Mecanicos</a>
+  <a href="#" data-role="button" onClick="StartLogin();" data-icon="refresh">Cargar dats de DBLocal</a>
+
+  <div data-role="fieldcontain">
+    <label for="PerfilNombre">Nombre:</label>
+    <input type="text" name="PerfilNombre" id="PerfilNombre" value="" disabled />
+  </div>
+  <div data-role="fieldcontain">
+    <label for="PerfilLicencia">Licencia:</label>
+    <input type="text" name="PerfilLicencia" id="PerfilLicencia" value="" disabled />
+  </div>
+  <div data-role="fieldcontain">
+    <label for="PerfilClave">Clave:</label>
+    <input type="text" name="PerfilClave" id="PerfilClave" value="" disabled />
+  </div> 
+ <div data-role="fieldcontain">
+    <label for="PerfilCorreo">Correo:</label>
+    <input type="text" name="PerfilCorreo" id="PerfilCorreo" value="" disabled />
+  </div>
+   <a href="#" data-role="button" onClick="ListMecanicos();" data-icon="refresh">Borrar Bitacoras</a>
   </div>
   <div data-role="footer" data-position="fixed">
 		<div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
-        <li><a class="ui-icon-home" href="#Cirrus">Info</a></li>
-        <li><a href="#Cirrus2">Vuelo</a></li>
-        <li><a href="#Cirrus3">Lecturas</a></li>
+        <li><a class="ui-icon-home" href="#home">Home</a></li>
+        
         </ul>
         </div>
 	</div>
@@ -124,9 +125,8 @@ onBodyLoad();
 	<div data-role="footer" data-position="fixed">
 		<div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus">Info</a></li>
-        <li><a href="#Cirrus2">Vuelo</a></li>
-        <li><a href="#Cirrus3">Lecturas</a></li>
+        <li><a href="#home">Home</a></li>
+       
         </ul>
         </div>
 	</div>
@@ -157,22 +157,13 @@ onBodyLoad();
           <a onclick="saveLogbook1();" href="#CirrusTramos" data-role="button" >Crear Bitacora</a>
   </div>
   <div data-role="footer" data-position="fixed">
-    <!--  <div data-role="navbar" >
+     <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus">Info</a></li>
-        <li><a href="#Cirrus2">Vuelo</a></li>
-        <li><a href="#Cirrus3">Lecturas</a></li>
+        <li><a href="#home">home</a></li>
+        <li><a href="#bitacoras">Cancel</a></li>
         </ul>
         </div>
-        <div data-role="navbar">
-        <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus4">Pax</a></li>
-        <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#Submit">Página</a></li>
-      </ul>
-    
-    </div>
-     </div> -->
+      
   </div>
 </div>
 <div data-role="page" id="CirrusTramos">
@@ -189,7 +180,6 @@ onBodyLoad();
     <div data-role="navbar" >
       <ul data-role="listview" data-inset="true" >
         <li><a href="#Cirrus" data-icon="home" >Info</a></li>
-        <li><a href="#CirrusTramo" data-icon="star">Vuelo</a></li>
         <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
         <li><a href="#Cirrus5" data-icon="gear">Mantenimiento</a></li>
        </ul>
@@ -325,13 +315,13 @@ onBodyLoad();
     </div>
     </div>
   </div>
-  <a href="#CirrusInstumentos1" data-role="button" >Guardar</a>
+  <a href="#CirrusInstrumentos1" data-role="button" >Guardar</a>
   </div>
   <div data-role="footer" data-position="fixed">
         <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
        <li><a href="#CirrusTramo1">Vuelo Tramo 1</a></li>
-        <li><a href="#CirrusInstumentos1">Lecturas Tramo 1</a></li>
+        <li><a href="#CirrusInstrumentos1">Lecturas Tramo 1</a></li>
          <li><a href="#CirrusPax1">Pax Tramo 1</a></li>
         </ul>
         </div>
@@ -419,7 +409,7 @@ onBodyLoad();
         <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
        <li><a href="#CirrusTramo1">Vuelo Tramo 1</a></li>
-        <li><a href="#CirrusInstumentos1">Lecturas Tramo 1</a></li>
+        <li><a href="#CirrusInstrumentos1">Lecturas Tramo 1</a></li>
          <li><a href="#CirrusPax1">Pax Tramo 1</a></li>
         </ul>
         </div>
@@ -464,7 +454,7 @@ onBodyLoad();
   <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
        <li><a href="#CirrusTramo1">Vuelo Tramo 1</a></li>
-        <li><a href="#CirrusInstumentos1">Lecturas Tramo 1</a></li>
+        <li><a href="#CirrusInstrumentos1">Lecturas Tramo 1</a></li>
          <li><a href="#CirrusPax1">Pax Tramo 1</a></li>
         </ul>
         </div>
@@ -508,7 +498,7 @@ onBodyLoad();
     <div class="ui-block-b">
     <div class="ui-bar">
     <label for="utcLlega2">UTC LLEGA:</label>
-    <input type="time" id="utcLlega2" class="uppercase" required onChange="calACalinput();">
+    <input type="time" id="utcLlega2" class="uppercase" required onChange="calACalinput2();">
     </div>
     </div>
     <div class="ui-block-c" >
@@ -522,13 +512,13 @@ onBodyLoad();
     <div class="ui-block-a" >
     <div class="ui-bar">
     <label for="hSale2">H SALE:</label>
-    <input type="number" id="hSale2" class="uppercase" required onChange="tVueloTotal();" >
+    <input type="number" id="hSale2" class="uppercase" required onChange="tVueloTotal2();" >
     </div>
     </div>
     <div class="ui-block-b" >
     <div class="ui-bar">
     <label for="hLlega2">H LLEGA:</label>
-    <input type="number" id="hLlega2" class="uppercase" required onChange="tVueloTotal();">
+    <input type="number" id="hLlega2" class="uppercase" required onChange="tVueloTotal2();">
     </div>
     </div>
     <div class="ui-block-c" >
@@ -540,13 +530,13 @@ onBodyLoad();
     <div class="ui-block-a" >
     <div class="ui-bar">
     <label for="cSale2">C.Sale(Gal):</label>
-    <input type="number" id="cSale2" class="uppercase" value= "" required onChange="ConsumoGas();">
+    <input type="number" id="cSale2" class="uppercase" value= "" required onChange="ConsumoGas2();">
     </div>
     </div>
     <div class="ui-block-b" >
     <div class="ui-bar">
     <label for="cLlega2">C.Llega(Gal):</label>
-    <input type="number" id="cLlega2" class="uppercase" required onChange="ConsumoGas();">
+    <input type="number" id="cLlega2" class="uppercase" required onChange="ConsumoGas2();">
     </div>
     </div>
     <div class="ui-block-c" >
@@ -559,13 +549,13 @@ onBodyLoad();
   <div class="ui-block-a" >
     <div class="ui-bar">
     <label for="pCarga2">P. Carga(kg):</label>
-    <input type="number" id="pCarga2" class="uppercase" value= "" required onChange="pDespegueTotal();">
+    <input type="number" id="pCarga2" class="uppercase" value= "" required onChange="pDespegueTotal2();">
     </div>
     </div>
     <div class="ui-block-b" >
     <div class="ui-bar">
     <label for="pComust2">P. Combustible:</label>
-    <input type="number" id="pCombust2" class="uppercase" required readonly data-theme="b" onChange="pDespegueTotal();">
+    <input type="number" id="pCombust2" class="uppercase" required readonly data-theme="b" onChange="pDespegueTotal2();">
     </div>
     </div>
     <div class="ui-block-c" >
@@ -607,14 +597,14 @@ onBodyLoad();
     </div>
   </div>
   </div>
-  <a href="#CirrusInstumentos2" data-role="button" >Guardar</a>
+  <a href="#CirrusInstrumentos2" data-role="button" >Siguiente</a>
   </div>
  
   <div data-role="footer" data-position="fixed" >
     <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
        <li><a href="#CirrusTramo2">Vuelo Tramo 2</a></li>
-        <li><a href="#CirrusInstumentos2">Lecturas Tramo 2</a></li>
+        <li><a href="#CirrusInstrumentos2">Lecturas Tramo 2</a></li>
          <li><a href="#CirrusPax2">Pax Tramo 2</a></li>
         </ul>
         </div>
@@ -700,7 +690,7 @@ onBodyLoad();
     <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
        <li><a href="#CirrusTramo2">Vuelo Tramo 2</a></li>
-        <li><a href="#CirrusInstumentos2">Lecturas Tramo 2</a></li>
+        <li><a href="#CirrusInstrumentos2">Lecturas Tramo 2</a></li>
          <li><a href="#CirrusPax2">Pax Tramo 2</a></li>
         </ul>
         </div>
@@ -744,7 +734,7 @@ onBodyLoad();
     <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
        <li><a href="#CirrusTramo2">Vuelo Tramo 2</a></li>
-        <li><a href="#CirrusInstumentos2">Lecturas Tramo 2</a></li>
+        <li><a href="#CirrusInstrumentos2">Lecturas Tramo 2</a></li>
          <li><a href="#CirrusPax2">Pax Tramo 2</a></li>
         </ul>
         </div>
@@ -765,63 +755,54 @@ onBodyLoad();
   </div>
   <div data-role="content">
     <div data-role="fieldcontain">
-      <label for="textarea">Reportes:</label>
-      <textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+      <label for="Reportes">Reportes:</label>
+      <textarea cols="40" rows="8" name="textarea" id="Reportes"></textarea>
     </div>
     <div data-role="fieldcontain">
-      <label for="textarea2">Accion Correctiva:</label>
-      <textarea cols="40" rows="8" name="textarea2" id="textarea2"></textarea>
+      <label for="AccionCorrectiva">Accion Correctiva:</label>
+      <textarea cols="40" rows="8" name="AccionCorrectiva" id="AccionCorrectiva"></textarea>
     </div>
     <div data-role="fieldcontain">
-      <label for="selectmenu4" class="select">Prevuelo:</label>
-      <select name="selectmenu4" id="selectmenu4">
-        <option value="option1">Piloto</option>
-        <option value="option2">Mecanico de Base</option>
-        <option value="option3">Externo</option>
+      <label for="Comentarios">Comentarios Adicionales:</label>
+      <textarea cols="40" rows="8" name="Comentarios" id="Comentarios"></textarea>
+    </div>
+    <div data-role="fieldcontain">
+      <label for="PrevueloSelect" class="select">Prevuelo:</label>
+      <select name="PrevueloSelect" id="PrevueloSelect" onChange="prevueloChange();">
+      
       </select>
     </div>
+    
     <div data-role="fieldcontain">
-      <fieldset data-role="controlgroup">
-        <legend>Mecanico</legend>
-        <input type="radio" name="radio1" id="radio1_0" value="" />
-        <label for="radio1_0">Lomeli</label>
-        <input type="radio" name="radio1" id="radio1_1" value="" />
-        <label for="radio1_1">Colon</label>
-        <input type="radio" name="radio1" id="radio1_2" value="" />
-        <label for="radio1_2">Maya</label>
-        
-      </fieldset>
+      <label for="PrevueloNombre">Nombre:</label>
+      <input type="text" name="PrevueloNombre" id="PrevueloNombre" value=""   />
     </div>
-    <div data-role="fieldcontain">
-      <label for="textinput6">Otro:</label>
-      <input type="text" name="textinput6" id="textinput6" value=""  />
-    </div>
+     <div data-role="fieldcontain">
+      <label for="PrevueloLicencia">Licencia:</label>
+      <input type="text" name="PrevueloLicencia" id="PrevueloLicencia" value=""   />
+    </div> 
   <a href="#Cirrus" data-role="button" >Siguiente</a>
   </div>
   <div data-role="footer" data-position="fixed">
     <div data-role="navbar" >
-      <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus">Info</a></li>
-        <li><a href="#Cirrus2">Vuelo</a></li>
-        <li><a href="#Cirrus3">Lecturas</a></li>
-        </ul>
-        </div>
-        <div data-role="navbar">
-        <ul data-role="listview" data-inset="true">
-        <li><a href="#Cirrus4">Pax</a></li>
-        <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#Submit">Página</a></li>
-      </ul>
-     </div>
+      <ul data-role="listview" data-inset="true" >
+        <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus5" data-icon="gear">Mantenimiento</a></li>
+       </ul>
+      </div>
   </div>
 </div>
 <div data-role="page" id="Cirrus6">
   <div data-role="header">
-    <h1>Encabezado</h1>
+    <h1>Envio de La Bitacora</h1>
   </div>
-  <div data-role="content">Contenido</div>
+  <div data-role="content">
+  
+  </div>
   <div data-role="footer">
-    <h4>Pie</h4>
+  
+  
   </div>
 </div>
 
