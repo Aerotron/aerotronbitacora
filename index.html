@@ -50,7 +50,7 @@ onBodyLoad();
 	    <input type="password" name="passwordd" id="passwordd" value=""  />  </div>
 	   <div data-role="fieldcontain">
 	      
-<a href="#" data-role="button" onClick="Login(); ">Botón</a><a href="#home" data-role="button" data-icon="home">Login</a>
+<a href="#home" data-role="button" data-icon="home" onClick="Login();">Login</a>
      </div>
 </div>
 </div>
@@ -82,9 +82,7 @@ onBodyLoad();
     <h1>Perfil del Usuario</h1>
   </div>
   <div data-role="content">
-  <a href="#" onClick="BorrarMecanicos()" data-role="button" data-icon="refresh">Borrar Mecanicos</a>
-  <a href="#" onClick="addMecanicos()" data-role="button" data-icon="refresh">Obtener Mecanicos</a>
-  <a href="#" data-role="button" onClick="StartLogin();" data-icon="refresh">Cargar dats de DBLocal</a>
+
 
   <div data-role="fieldcontain">
     <label for="PerfilNombre">Nombre:</label>
@@ -102,7 +100,10 @@ onBodyLoad();
     <label for="PerfilCorreo">Correo:</label>
     <input type="text" name="PerfilCorreo" id="PerfilCorreo" value="" disabled />
   </div>
-   <a href="#" data-role="button" onClick="ListMecanicos();" data-icon="refresh">Borrar Bitacoras</a>
+   <a href="#" data-role="button" onClick="ListMecanicos();" data-icon="refresh">Lista de Mecanicos</a>
+     <a href="#" onClick="BorrarMecanicos()" data-role="button" data-icon="refresh">Borrar Mecanicos</a>
+  <a href="#" onClick="addMecanicos()" data-role="button" data-icon="refresh">Obtener Mecanicos</a>
+  <a href="#" data-role="button" onClick="StartLogin();" data-icon="refresh">Cargar dats de DBLocal</a>
   </div>
   <div data-role="footer" data-position="fixed">
 		<div data-role="navbar" >
@@ -182,6 +183,7 @@ onBodyLoad();
         <li><a href="#Cirrus" data-icon="home" >Info</a></li>
         <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
         <li><a href="#Cirrus5" data-icon="gear">Mantenimiento</a></li>
+        <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
        </ul>
     </div>
   </div>
@@ -781,7 +783,7 @@ onBodyLoad();
       <label for="PrevueloLicencia">Licencia:</label>
       <input type="text" name="PrevueloLicencia" id="PrevueloLicencia" value=""   />
     </div> 
-  <a href="#Cirrus" data-role="button" >Siguiente</a>
+  <a href="#Cirrus6" data-role="button" >Siguiente</a>
   </div>
   <div data-role="footer" data-position="fixed">
     <div data-role="navbar" >
@@ -789,6 +791,7 @@ onBodyLoad();
         <li><a href="#Cirrus" data-icon="home" >Info</a></li>
         <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
         <li><a href="#Cirrus5" data-icon="gear">Mantenimiento</a></li>
+        <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
        </ul>
       </div>
   </div>
@@ -797,7 +800,7 @@ onBodyLoad();
   <div data-role="header">
     <h1>Envio de La Bitacora</h1>
   </div>
-  <div data-role="content">
+  <div data-role="content"><a href="#" data-role="button">Enviar a Servidor</a>
   
   </div>
   <div data-role="footer">
