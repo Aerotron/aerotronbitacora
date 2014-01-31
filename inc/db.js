@@ -31,7 +31,7 @@ function onBodyLoad(){
  
 // this line will try to create the table User in the database just created/openned
  db.transaction(function(tx){
- tx.executeSql( 'CREATE TABLE IF NOT EXISTS UserBitacoras(UserId INTEGER NOT NULL PRIMARY KEY, Name TEXT, PassWordd TEXT, Clave TEXT, Password TEXT, Correo TEXT, Licence TEXT)',
+ tx.executeSql( 'CREATE TABLE IF NOT EXISTS UserBitacoras(UserId INTEGER NOT NULL PRIMARY KEY, ID Integer, Name TEXT, PassWordd TEXT, Clave TEXT, Password TEXT, Correo TEXT, Licence TEXT, ID Integer)',
 [],nullHandler,errorHandler);
  },errorHandler,successCallBack);
 
@@ -60,6 +60,7 @@ function ListDBValues() {
  db.transaction(function(transaction) {
    transaction.executeSql('SELECT * FROM Prevuelo;', [],
      function(transaction, result) {
+         $('#PrevueloSelect').html('');
          $('#PrevueloSelect').append('<option value="'+ $('#PerfilLicencia').val() +'">' + $('#PerfilNombre').val() + '</option>');
       if (result != null && result.rows != null) {
         for (var i = 0; i < result.rows.length; i++) {
@@ -87,9 +88,9 @@ function agregarMecanico(user,licencia) {
 
     return false;
   } ;
-function agregarUser(Nombre, Licencia, PassWord, Clave, Correo){
+function agregarUser(Nombre, Licencia, PassWord, Clave, Correo, ID){
     db.transaction(function(transaction) {
-        transaction.executeSql('INSERT INTO UserBitacoras(Name, PassWord, Clave, Correo ,Licence ) VALUES (?,?,?,?,?)',[Nombre,PassWord,Clave,Correo,Licencia],
+        transaction.executeSql('INSERT INTO UserBitacoras(Name, PassWord, Clave, Correo ,Licence,ID ) VALUES (?,?,?,?,?,?)',[Nombre,PassWord,Clave,Correo,Licencia,ID],
             nullHandler,errorHandler);
     });
 }
@@ -104,13 +105,13 @@ function BorrarUsuario () {
             [],nullHandler,errorHandler);
     },errorHandler,successCallBack);
     db.transaction(function(tx){
-        tx.executeSql( 'CREATE TABLE IF NOT EXISTS UserBitacoras(UserId INTEGER NOT NULL PRIMARY KEY, Name TEXT, PassWordd TEXT, Clave TEXT, Password TEXT, Correo TEXT, Licence TEXT)',
+        tx.executeSql( 'CREATE TABLE IF NOT EXISTS UserBitacoras(UserId INTEGER NOT NULL PRIMARY KEY, Name TEXT, PassWordd TEXT, Clave TEXT, Password TEXT, Correo TEXT, Licence TEXT, ID INTEGER)',
             [],nullHandler,errorHandler);
     },errorHandler,successCallBack);
 }
 function BorrarMecanicos () {
     db.transaction(function(transaction) {
-        transaction.executeSql('DELETE from Prevuelo',
+        transaction.executeSql('DELETE * from Prevuelo',
             nullHandler,errorHandler);
     });
 }
@@ -163,24 +164,34 @@ function StartLogin () {
     db.transaction(function(transaction) {
         transaction.executeSql('SELECT * FROM UserBitacoras;', [],
             function(transaction, result) {
-                 if (result != null && result.rows != null) {
+                 if (result.rows.item(0) != null && result.rows != null) {
                     var row = result.rows.item(0);
+                    if (row.Name != ''){
                     document.getElementById("PerfilNombre").value = row.Name;
                     document.getElementById("PerfilLicencia").value = row.Licence;
                     document.getElementById("PerfilClave").value = row.Clave;
                     document.getElementById("PerfilCorreo").value = row.Correo;
+                    document.getElementById("PerfilID").value = row.ID;
                     document.getElementById("usrName").value = row.Clave;
                     document.getElementById("passwordd").value = row.Pass;
+                    document.getElementById("PrevueloNombre").value = row.Name;
+                    document.getElementById("PrevueloLicencia").value = row.Licence;
+
                      $('#usrName').disabled = true;
                      $('#passwordd').disabled = true;
 
+                    }
+                     else{
+                        alert("Not logged in 1");
+                    }
+
                 }
                 else {
-                    alert("Not logged in ");
+                    alert("Not logged in 2");
                 }
             },errorHandler);
     },errorHandler,nullHandler);
 
     return;
 } ;
- 
+

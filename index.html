@@ -12,6 +12,7 @@
 <script src="inc/db.js" type="text/javascript"></script>
 <script src="inc/GastosJS.js" type="text/javascript"></script>
 <script src="jquery-mobile/jquery.validate.js"></script>
+
 <script type="text/javascript" language="javascript">
     $(document).ready(function(){
 $("#bitacoraForm").validate();
@@ -50,7 +51,7 @@ onBodyLoad();
 	    <input type="password" name="passwordd" id="passwordd" value=""  />  </div>
 	   <div data-role="fieldcontain">
 	      
-<a href="#home" data-role="button" data-icon="home" onClick="Login();">Login</a>
+<a data-role="button" data-icon="home" onClick="Login();">Login</a>
      </div>
 </div>
 </div>
@@ -100,10 +101,15 @@ onBodyLoad();
     <label for="PerfilCorreo">Correo:</label>
     <input type="text" name="PerfilCorreo" id="PerfilCorreo" value="" disabled />
   </div>
+  <div data-role="fieldcontain">
+    <label for="PerfilID">ID Sistema:</label>
+    <input type="text" name="PerfilCorreo" id="PerfilID" value="" disabled />
+  </div>
    <a href="#" data-role="button" onClick="ListMecanicos();" data-icon="refresh">Lista de Mecanicos</a>
-     <a href="#" onClick="BorrarMecanicos()" data-role="button" data-icon="refresh">Borrar Mecanicos</a>
-  <a href="#" onClick="addMecanicos()" data-role="button" data-icon="refresh">Obtener Mecanicos</a>
+     <a href="#" onClick="BorrarMecanicos();" data-role="button" data-icon="refresh">Borrar Mecanicos</a>
+  <a href="#" onClick="addMecanicos();" data-role="button" data-icon="refresh">Obtener Mecanicos</a>
   <a href="#" data-role="button" onClick="StartLogin();" data-icon="refresh">Cargar dats de DBLocal</a>
+  <a href="#" data-role="button" onClick="resetDatabase();" data-icon="refresh">Borrar BDD Local</a>
   </div>
   <div data-role="footer" data-position="fixed">
 		<div data-role="navbar" >
@@ -151,19 +157,21 @@ onBodyLoad();
           <label for="solicitado">Solicitado por:</label>
           <input type="text" id="solicitado" class="uppercase" required>
      	<label for="date">Folio:</label>
- 		<input type="number" id="matricula" value="XAPVR" class="uppercase" required>
+ 		<input type="number" id="Folio" value="" class="uppercase" required>
           
           </fieldset>
           </form>
-          <a onclick="saveLogbook1();" href="#CirrusTramos" data-role="button" >Crear Bitacora</a>
+          <a onclick="saveLogbook1();" href="#CirrusTramos" data-role="button" >Siguiente</a>
   </div>
   <div data-role="footer" data-position="fixed">
      <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
-        <li><a href="#home">home</a></li>
-        <li><a href="#bitacoras">Cancel</a></li>
+       <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="ListDBValues();">Mantenimiento</a></li>
+        <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
         </ul>
-        </div>
+ </div>
       
   </div>
 </div>
@@ -177,12 +185,12 @@ onBodyLoad();
         <li><a href="#CirrusTramo2" data-icon="star">Tramo 2</a></li>
         </ul>
  </div>
-  <div data-role="footer">
+  <div data-role="footer" data-position="fixed">
     <div data-role="navbar" >
       <ul data-role="listview" data-inset="true" >
         <li><a href="#Cirrus" data-icon="home" >Info</a></li>
         <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
-        <li><a href="#Cirrus5" data-icon="gear">Mantenimiento</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="ListDBValues();">Mantenimiento</a></li>
         <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
        </ul>
     </div>
@@ -193,9 +201,11 @@ onBodyLoad();
     <h1>Informacion de Vuelo Tramo 1</h1>
   </div>
   <div data-role="content">
+  <form id="tramo1">
   <div class="ui-grid-a" >
     <div class="ui-block-a" >
     <div class="ui-bar">
+    
     <label for="solicitado">(Origen) De:</label>
     <input type="text" id="De" class="uppercase" required>
     </div>
@@ -299,8 +309,8 @@ onBodyLoad();
     
     <div class="ui-block-b" >
     <div class="ui-bar">
-    <label for="solicitado">N. Vuelo:</label>
-    <input type="text" id="pCarga" class="uppercase" required>
+    <label for="Nvuel">N. Vuelo:</label>
+    <input type="text" id="nVuelo" class="uppercase" required>
     </div>
     </div>
     <div class="ui-block-a" >
@@ -315,9 +325,10 @@ onBodyLoad();
     <label for="Aceite">Aceite +:</label>
     <input type="text" id="Aceite" class="uppercase" required>
     </div>
-    </div>
+   </div>
   </div>
-  <a href="#CirrusInstrumentos1" data-role="button" >Guardar</a>
+  <a href="#CirrusInstrumentos1" data-role="button" >Siguiente</a>
+  </form>
   </div>
   <div data-role="footer" data-position="fixed">
         <div data-role="navbar" >
@@ -329,9 +340,10 @@ onBodyLoad();
         </div>
         <div data-role="navbar">
         <ul data-role="listview" data-inset="true">
-        <li><a href="#CirrusTramos">Tramos</a></li>
-        <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#Cirrus6">Envio</a></li>
+         <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="ListDBValues();">Mantenimiento</a>
+        <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
       </ul>
      
     </div>
@@ -418,7 +430,7 @@ onBodyLoad();
         <div data-role="navbar">
         <ul data-role="listview" data-inset="true">
         <li><a href="#CirrusTramos">Tramos</a></li>
-        <li><a href="#Cirrus5">Mantenimiento</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="ListDBValues();">Mantenimiento</a></li>
         <li><a href="#Cirrus6">Envio</a></li>
       </ul>
      
@@ -452,7 +464,7 @@ onBodyLoad();
     </div>
   <a href="#CirrusTramos" data-role="button" >Siguiente</a>
     </div>
-  <div data-role="footer">
+  <div data-role="footer" data-position="fixed" >
   <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
        <li><a href="#CirrusTramo1">Vuelo Tramo 1</a></li>
@@ -462,9 +474,10 @@ onBodyLoad();
         </div>
         <div data-role="navbar">
         <ul data-role="listview" data-inset="true">
-        <li><a href="#CirrusTramos">Tramos</a></li>
-        <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#Cirrus6">Envio</a></li>
+        <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="listDBValues();">Mantenimiento</a></li>
+        <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
       </ul>
      
     </div>
@@ -612,9 +625,10 @@ onBodyLoad();
         </div>
         <div data-role="navbar">
         <ul data-role="listview" data-inset="true">
-        <li><a href="#CirrusTramos">Tramos</a></li>
-        <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#Cirrus6">Envio</a></li>
+        <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="listDBValues();">Mantenimiento</a></li>
+        <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
       </ul>
      </div>
   </div>
@@ -698,9 +712,10 @@ onBodyLoad();
         </div>
         <div data-role="navbar">
         <ul data-role="listview" data-inset="true">
-        <li><a href="#CirrusTramos">Tramos</a></li>
-        <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#Cirrus6">Envio</a></li>
+        <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="listDBValues();">Mantenimiento</a></li>
+        <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
       </ul>
      </div>
   </div>
@@ -742,9 +757,10 @@ onBodyLoad();
         </div>
         <div data-role="navbar">
         <ul data-role="listview" data-inset="true">
-        <li><a href="#CirrusTramos">Tramos</a></li>
-        <li><a href="#Cirrus5">Mantenimiento</a></li>
-        <li><a href="#Cirrus6">Envio</a></li>
+        <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="listDBValues();">Mantenimiento</a></li>
+        <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
       </ul>
      </div>
   </div>
@@ -781,7 +797,7 @@ onBodyLoad();
     </div>
      <div data-role="fieldcontain">
       <label for="PrevueloLicencia">Licencia:</label>
-      <input type="text" name="PrevueloLicencia" id="PrevueloLicencia" value=""   />
+      <input  type="text" name="PrevueloLicencia" id="PrevueloLicencia" value=""   />
     </div> 
   <a href="#Cirrus6" data-role="button" >Siguiente</a>
   </div>
@@ -790,7 +806,7 @@ onBodyLoad();
       <ul data-role="listview" data-inset="true" >
         <li><a href="#Cirrus" data-icon="home" >Info</a></li>
         <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
-        <li><a href="#Cirrus5" data-icon="gear">Mantenimiento</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="listDBValues();">Mantenimiento</a></li>
         <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
        </ul>
       </div>
@@ -800,11 +816,20 @@ onBodyLoad();
   <div data-role="header">
     <h1>Envio de La Bitacora</h1>
   </div>
-  <div data-role="content"><a href="#" data-role="button">Enviar a Servidor</a>
-  
+  <div data-role="content">
+  <a href="#" onClick="EnvioBitacora();" data-role="button">Enviar a Servidor</a>
+  <div id="errores">
   </div>
-  <div data-role="footer">
-  
+  </div>
+  <div data-role="footer" data-position="fixed">
+  <div data-role="navbar" >
+      <ul data-role="listview" data-inset="true" >
+        <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+        <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
+        <li><a href="#Cirrus5" data-icon="gear" onclick="listDBValues();">Mantenimiento</a></li>
+        <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
+       </ul>
+      </div>
   
   </div>
 </div>
