@@ -110,6 +110,7 @@ onBodyLoad();
   <a href="#" onClick="addMecanicos();" data-role="button" data-icon="refresh">Obtener Mecanicos</a>
   <a href="#" data-role="button" onClick="StartLogin();" data-icon="refresh">Cargar dats de DBLocal</a>
   <a href="#" data-role="button" onClick="resetDatabase();" data-icon="refresh">Borrar BDD Local</a>
+   <a href="#" data-role="button" onClick="BorrarDatosBitacora();" data-icon="refresh">Borrar Datos</a>
   </div>
   <div data-role="footer" data-position="fixed">
 		<div data-role="navbar" >
@@ -166,7 +167,7 @@ onBodyLoad();
   <div data-role="footer" data-position="fixed">
      <div data-role="navbar" >
       <ul data-role="listview" data-inset="true">
-       <li><a href="#Cirrus" data-icon="home" >Info</a></li>
+       <li><a href="#home" data-icon="home" >Home</a></li>
         <li><a href="#CirrusTramos" data-icon="grid">Tramos</a></li>
         <li><a href="#Cirrus5" data-icon="gear" onclick="ListDBValues();">Mantenimiento</a></li>
         <li><a href="#Cirrus6" data-icon="forward">Envio</a></li>
@@ -817,7 +818,8 @@ onBodyLoad();
     <h1>Envio de La Bitacora</h1>
   </div>
   <div data-role="content">
-  <a href="#" onClick="EnvioBitacora();" data-role="button">Enviar a Servidor</a>
+  <a href="#" onClick="EnvioBitacora();" data-role="button">Enviar 1Tramo a Servidor</a>
+  <a href="#" onClick="EnvioBitacora()_;" data-role="button">Enviar 2 Tramos</a>
   <div id="errores">
   </div>
   </div>

@@ -113,7 +113,16 @@ function BorrarMecanicos () {
     db.transaction(function(transaction) {
         transaction.executeSql('DELETE * from Prevuelo',
             nullHandler,errorHandler);
+
     });
+    db.transaction(function(tx){
+        tx.executeSql( 'DROP TABLE Prevuelo' ,
+            [],nullHandler,errorHandler);
+    },errorHandler,successCallBack);
+    db.transaction(function(tx){
+        tx.executeSql( 'CREATE TABLE IF NOT EXISTS Prevuelo(UserId INTEGER NOT NULL PRIMARY KEY, Name TEXT NOT NULL, Licence TEXT NOT NULL )',
+            [],nullHandler,errorHandler);
+    },errorHandler,successCallBack);
 }
 // this is the function that puts values into the database using the values from the text boxes on the screen
 function AddValueToDB() {

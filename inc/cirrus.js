@@ -150,9 +150,9 @@ function ValidarDatosTramo1() {
     var ManPress = $('#MANPRESS').val();
     var OilTemp = $('#OILTEMP').val();
     var OilPress = $('#OILPRESS').val();
-    var EGT = $('#RPM').val();
-    var CHT = $('#RPM').val();
-    var VOLTS = $('#RPM').val();
+    var EGT = $('#EGT').val();
+    var CHT = $('#CHT').val();
+    var VOLTS = $('#VOLTS').val();
     var AMPERS = $('#AMPERS').val();
     var FUELFLOW = $('#FUELFLOW').val();
     var Ferry = $('#Ferry1').val();
@@ -250,9 +250,9 @@ function ValidarDatosTramo1() {
         var ManPress2 = $('#MANPRESS2').val();
         var OilTemp2 = $('#OILTEMP2').val();
         var OilPress2 = $('#OILPRESS2').val();
-        var EGT2 = $('#RPM2').val();
-        var CHT2 = $('#RPM2').val();
-        var VOLTS2 = $('#RPM2').val();
+        var EGT2 = $('#EGT2').val();
+        var CHT2 = $('#CHT2').val();
+        var VOLTS2 = $('#VOLTS2').val();
         var AMPERS2 = $('#AMPERS2').val();
         var FUELFLOW2 = $('#FUELFLOW2').val();
         var Ferry2 = $('#Ferry2').val();
@@ -346,5 +346,61 @@ function FaltantesGenerales (){
     if((PrevueloNombre == null) || (PrevueloNombre == "") || (PrevueloNombre == undefined) ){
         $('#errores').append('<p>Licencia del Prevuelo </p>');
     } ;
+}
+function BorrarDatosBitacora(){
+    $('#hSale').val('');
+    $('#hLlega').val('');
+    $('#hSale2').val('');
+    $('#hLlega2').val('');
+    $('#De2').val('');
+    $('#A2').val('');
+  $('#calACal2').val('');
+     $('#tVuelo2').val('');
+    $('#cSale2').val('');
+    $('#cLlega2').val('');
+   $('#Consumo2').val('');
+    $('#pCarga2').val('');
+    $('#nVuelo2').val('');
+    $('#OAT2').val('');
+    $('#Aceite2').val('');
+     $('#Crucero2').val('');
+     $('#RPM2').val('');
+    $('#MANPRESS2').val('');
+    $('#OILTEMP2').val('');
+    $('#OILPRESS2').val('');
+   $('#EGT2').val('');
+    $('#CHT2').val('');
+    $('#VOLTS2').val('');
+    $('#AMPERS2').val('');
+    $('#FUELFLOW2').val('');
+    $('#Ferry2').val('');
+    $('#Pax2_1').val('');
+    $('#Pax2_2').val('');
+    $('#Pax2_3').val('');
+     $('#De').val('');
+    $('#A').val('');
+    $('#calACal').val('');
+    $('#tVuelo').val('');
+    $('#cSale').val('');
+    $('#cLlega').val('');
+    $('#Consumo').val('');
+    $('#pCarga').val('');
+    $('#nVuelo').val('');
+    $('#OAT').val('');
+    $('#Aceite').val('');
+    $('#Crucero').val('');
+    $('#RPM').val('');
+    $('#MANPRESS').val('');
+    $('#OILTEMP').val('');
+    $('#OILPRESS').val('');
+    $('#EGT').val('');
+    $('#CHT').val('');
+    $('#VOLTS').val('');
+    $('#AMPERS').val('');
+    $('#FUELFLOW').val('');
+    $('#Ferry1').val('');
+    $('#Pax1_1').val('');
+    $('#Pax1_2').val('');
+    $('#Pax1_3').val('');
 }
 
