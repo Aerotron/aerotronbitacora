@@ -200,7 +200,7 @@ function EnviarBitacora ()
     var Comentarios =$('#Comentarios').val() + '';
     var PrevueloNombre =$('#PrevueloNombre').val() + '';
     var PrevueloLicencia =$('#PrevueloLicencia').val() + '';
-    var Correo = $('#').val() + '';
+    var Correo = $('#PerfilCorreo').val() + '';
     $.ajax({
        // url: 'http://localhost:2467/WebSite3/Service1.asmx/AgregarBitacoraTA',
         url: 'http://187.174.155.50/service/Service1.asmx/AgregarBitacoraTA',
@@ -316,7 +316,7 @@ function EnviarBitacora ()
         var Comentarios =$('#Comentarios').val() + '';
         var PrevueloNombre =$('#PrevueloNombre').val() + '';
         var PrevueloLicencia =$('#PrevueloLicencia').val() + '';
-        var Correo = $('#').val() + '';
+        var Correo = $('#PerfilCorreo').val() + '';
         $.ajax({
             // url: 'http://localhost:2467/WebSite3/Service1.asmx/AgregarBitacoraTA',
             url: 'http://187.174.155.50/service/Service1.asmx/AgregarBitacoraTA2',
