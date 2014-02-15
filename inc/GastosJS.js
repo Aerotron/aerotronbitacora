@@ -133,13 +133,24 @@ function addMecanico(){
 function EnvioBitacora(){
 
     ValidarDatosTramo1();
-    ValidarDatosTramo2();
     FaltantesGenerales();
 
     var conf = confirm("Are you sure you want to send this Flightlog?");
 
     if(conf == true){
     EnviarBitacora();
+    }
+}
+function EnvioBitacora2(){
+
+    ValidarDatosTramo1();
+    ValidarDatosTramo2();
+    FaltantesGenerales();
+
+    var conf = confirm("Are you sure you want to send this Flightlog?");
+
+    if(conf == true){
+        EnviarBitacora2T();
     }
 }
 function EnviarBitacora ()
@@ -197,11 +208,12 @@ function EnviarBitacora ()
         dataType: "xml",
         type: 'POST',
         cache: false,
-        data:{NBitacora:Folio, FechaSalida1:FechaSalida, HoraLlegada1:utcLlega,AeropuertoSalida1:De, FechaLlegada1:FechaLlegada, HoraSalida1:utcSale, AeropuertoLlegada1:A,CalzoACalzo1:calACal,
-            TiempoVuelo1:tVuelo, Calzos1:5, Capitan1:Id, CapitanNombre1:CapNombre , CoPiloto1:1, Ferry:Ferry, Matricula1:Matricula, CSalida1:cSale ,CLlegada1:cLlega, HSalida1:Hsalida, Consumo1:Consumo,
-            pCarga1:pCarga, pCombust1:pCombust, pDespegue1:pDespegue, Reporte1:Reportes,  AccionCorrectiva:AccionCorrectiva, ManPress1:ManPress, OilTemp1:OilTemp, OilPress1:OilPress,
+        data:{NBitacora:Folio, FechaSalida1:FechaSalida, HoraLlegada1:utcLlega,AeropuertoSalida1:De, FechaLlegada1:FechaLlegada, HoraSalida1:utcSale,
+            AeropuertoLlegada1:A,CalzoACalzo1:calACal,TiempoVuelo1:tVuelo, Calzos1:5, Capitan1:Id, CapitanNombre1:CapNombre , CoPiloto1:1,CopilotoNombre:CopiNombre,
+            Ferry:Ferry, Matricula1:Matricula, CSalida1:cSale ,CLlegada1:cLlega,Consumo1:Consumo, HSalida1:Hsalida, HLlegada1:HLlega,
+            pCarga1:pCarga, pCombust1:pCombust, pDespegue1:pDespegue, nVuelo1:nVuelo ,  Reporte1:Reportes,  AccionCorrectiva1:AccionCorrectiva, ManPress1:ManPress, OilTemp1:OilTemp, OilPress1:OilPress,
             EGT1:EGT,CHT1:CHT, OAT1:OAT , Ampers1:AMPERS, Volts1: VOLTS,   Aceite1:Aceite, FuelFlow1:FUELFLOW, RPM1:RPM,
-            HLlegada1:HLlega, Pax1:Pax1_1,Pax2:Pax1_2,Pax3:Pax1_3, Solicitado:Solicitado, Folio:Folio, Crucero1:Crucero,
+            Pax1:Pax1_1,Pax2:Pax1_2,Pax3:Pax1_3, Solicitado:Solicitado, Folio:Folio, Crucero1:Crucero,
             Comentarios:Comentarios , PrevueloNombre:PrevueloNombre , PrevueloLicencia:PrevueloLicencia, PilotoEmail:Correo
         },
         success: function (response) {
@@ -221,7 +233,8 @@ function EnviarBitacora ()
             alert("Error");
         }
     });
-    function EnviarBitacora2T ()
+}
+  function EnviarBitacora2T()
     {
         alert("enviando!!");
         var Matricula = $('#matricula').val() + '';
@@ -346,6 +359,7 @@ function EnviarBitacora ()
                 Ampers1:AMPERS,
                 Volts1: VOLTS,
                 Aceite1:Aceite,
+                nVuelo1:nVuelo,
                 FuelFlow1:FUELFLOW,
                 RPM1:RPM,
                 HLlegada1:HLlega,
@@ -377,16 +391,17 @@ function EnviarBitacora ()
                 OAT2:OAT ,
                 Ampers2:AMPERS,
                 Volts2: VOLTS,
-                Aceit21:Aceite,
+                nVuelo2:nVuelo1,
+                Aceite2:Aceite1,
                 FuelFlow2:FUELFLOW,
                 RPM2:RPM,
                 HLlegada2:HLlega,
                 Ferry2:Ferry2,
-                Pax2_1:Pax2_1,Pax2_2:Pax2_2,Pax3_2:Pax2_3,
+                Pax2_1:Pax2_1,Pax2_2:Pax2_2,Pax2_3:Pax2_3,
 
                 FechaLlegada1:FechaLlegada,
                 FechaSalida1:FechaSalida,
-                AccionCorrectiva:AccionCorrectiva,
+                AccionCorrectiva1:AccionCorrectiva,
                 Reporte1:Reportes,
                 Comentarios:Comentarios,
                 PrevueloNombre:PrevueloNombre,
@@ -410,5 +425,4 @@ function EnviarBitacora ()
                 alert("Error");
             }
         });
-}
 }
