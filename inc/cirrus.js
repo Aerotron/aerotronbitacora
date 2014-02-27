@@ -159,71 +159,92 @@ function ValidarDatosTramo1() {
     var Pax1_1 = $('#Pax1_1').val();
     var Pax1_2 = $('#Pax1_2').val();
     var Pax1_3 = $('#Pax1_3').val();
-
+    var Error = false ;
     $('#errores').html('');
     $('#errores').append('<p>Campos Faltantes del Tramo 1:</p>');
     if((De == null) || (De == "") || (De == undefined) ){
         $('#errores').append('<p>Origen</p>');
+
     } ;
     if((A == null) || (A == "") || (A == undefined) ){
         $('#errores').append('<p>Destino</p>');
+        Error = true;
     } ;
     if((calACal == null) || (calACal == "") || (calACal == undefined) ){
         $('#errores').append('<p>Utc</p>');
+        Error = true;
     } ;
     if((tVuelo == null) || (tVuelo == "") || (tVuelo == undefined) ){
         $('#errores').append('<p>Horometros</p>');
+        Error = true;
     } ;
     if((cSale == null) || (cSale == "") || (cSale == undefined) ){
         $('#errores').append('<p>Combustible Salida</p>');
+        Error = true;
     } ;
     if((cLlega == null) || (cLlega == "") || (cLlega == undefined) ){
         $('#errores').append('<p>Combustible Llegada</p>');
+        Error = true;
     } ;
     if((Consumo == null) || (Consumo == "") || (Consumo == undefined) ){
         $('#errores').append('<p>Consumo de Combustible</p>');
+        Error = true;
     } ;
     if((pCarga == null) || (pCarga == "") || (pCarga == undefined) ){
         $('#errores').append('<p>Peso de Carga</p>');
+        Error = true;
     } ;
     if((nVuelo == null) || (nVuelo == "") || (nVuelo == undefined) ){
         $('#errores').append('<p>N. Vuelo</p>');
+        Error = true;
     } ;
     if((OAT == null) || (OAT == "") || (OAT == undefined) ){
         $('#errores').append('<p>OAT</p>');
+        Error = true;
     } ;
     if((Aceite == null) || (Aceite == "") || (Aceite == undefined) ){
         $('#errores').append('<p>Aceite Agregado</p>');
+        Error = true;
     } ;
     if((Crucero == null) || (Crucero == "") || (Crucero == undefined) ){
         $('#errores').append('<p>Crucero</p>');
+        Error = true;
     } ;
     if((RPM == null) || (RPM == "") || (RPM == undefined) ){
         $('#errores').append('<p>RPM</p>');
+        Error = true;
     } ;
     if((ManPress == null) || (ManPress == "") || (ManPress == undefined) ){
         $('#errores').append('<p>ManPress</p>');
+        Error = true;
     } ;
     if((OilTemp == null) || (OilTemp == "") || (OilTemp == undefined) ){
         $('#errores').append('<p>OilTemp</p>');
+        Error = true;
     } ;
     if((OilPress == null) || (OilPress == "") || (OilPress == undefined) ){
         $('#errores').append('<p>OilPress</p>');
+        Error = true;
     } ;
     if((EGT == null) || (EGT == "") || (EGT == undefined) ){
         $('#errores').append('<p>EGT</p>');
+        Error = true;
     } ;
     if((CHT == null) || (CHT == "") || (CHT == undefined) ){
         $('#errores').append('<p>CHT</p>');
+        Error = true;
     } ;
     if((VOLTS == null) || (VOLTS == "") || (VOLTS == undefined) ){
         $('#errores').append('<p>VOLTS</p>');
+        Error = true;
     } ;
     if((AMPERS == null) || (AMPERS == "") || (AMPERS == undefined) ){
         $('#errores').append('<p>AMPERS</p>');
+        Error = true;
     } ;
     if((FUELFLOW == null) || (FUELFLOW == "") || (FUELFLOW == undefined) ){
         $('#errores').append('<p>FUELFLOW</p>');
+        Error = true;
     } ;
     if(Ferry = false){
         if((Pax1_1 == null) || (Pax1_1 == "") || (Pax1_1 == undefined) ){
@@ -231,6 +252,10 @@ function ValidarDatosTramo1() {
         } ;
 
     }
+    if (Error = true) {
+         return false;
+    };
+    return true;
 };
 
     function ValidarDatosTramo2() {
@@ -256,96 +281,126 @@ function ValidarDatosTramo1() {
         var AMPERS2 = $('#AMPERS2').val();
         var FUELFLOW2 = $('#FUELFLOW2').val();
         var Ferry2 = $('#Ferry2').val();
-        var Pax1_1 = $('#Pax2_1').val();
-        var Pax1_2 = $('#Pax2_2').val();
-        var Pax1_3 = $('#Pax2_3').val();
-
+        var Pax2_1 = $('#Pax2_1').val();
+        var Pax2_2 = $('#Pax2_2').val();
+        var Pax2_3 = $('#Pax2_3').val();
+        var Error = false ;
 
 
         $('#errores').append('<p>Campos Faltantes del Tramo 2:</p>');
         if((De2 == null) || (De2 == "") || (De2 == undefined) ){
             $('#errores').append('<p>Origen</p>');
+            Error = true;
         } ;
         if((A2 == null) || (A2 == "") || (A2 == undefined) ){
             $('#errores').append('<p>Destino</p>');
+            Error = true;
         } ;
         if((calACal2 == null) || (calACal2 == "") || (calACal2 == undefined) ){
             $('#errores').append('<p>Utc</p>');
+            Error = true;
         } ;
         if((tVuelo2 == null) || (tVuelo2 == "") || (tVuelo2 == undefined) ){
             $('#errores').append('<p>Horometros</p>');
+            Error = true;
         } ;
         if((cSale2 == null) || (cSale2 == "") || (cSale2 == undefined) ){
             $('#errores').append('<p>Combustible Salida</p>');
+            Error = true;
         } ;
         if((cLlega2 == null) || (cLlega2 == "") || (cLlega2 == undefined) ){
             $('#errores').append('<p>Combustible Llegada</p>');
+            Error = true;
         } ;
         if((Consumo2 == null) || (Consumo2 == "") || (Consumo2 == undefined) ){
             $('#errores').append('<p>Consumo de Combustible</p>');
+            Error = true;
         } ;
         if((pCarga2 == null) || (pCarga2 == "") || (pCarga2 == undefined) ){
             $('#errores').append('<p>Peso de Carga</p>');
+            Error = true;
         } ;
         if((nVuelo2 == null) || (nVuelo2 == "") || (nVuelo2 == undefined) ){
             $('#errores').append('<p>N. Vuelo</p>');
+            Error = true;
         } ;
         if((OAT2 == null) || (OAT2 == "") || (OAT2 == undefined) ){
             $('#errores').append('<p>OAT</p>');
+            Error = true;
         } ;
         if((Aceite2 == null) || (Aceite2 == "") || (Aceite2 == undefined) ){
             $('#errores').append('<p>Aceite Agregado</p>');
+            Error = true;
         } ;
         if((Crucero2 == null) || (Crucero2 == "") || (Crucero2 == undefined) ){
             $('#errores').append('<p>Crucero</p>');
+            Error = true;
         } ;
         if((RPM2 == null) || (RPM2 == "") || (RPM2 == undefined) ){
             $('#errores').append('<p>RPM</p>');
+            Error = true;
         } ;
         if((ManPress2 == null) || (ManPress2 == "") || (ManPress2 == undefined) ){
             $('#errores').append('<p>ManPress</p>');
+            Error = true;
         } ;
         if((OilTemp2 == null) || (OilTemp2 == "") || (OilTemp2 == undefined) ){
             $('#errores').append('<p>OilTemp</p>');
+            Error = true;
         } ;
         if((OilPress2 == null) || (OilPress2 == "") || (OilPress2 == undefined) ){
             $('#errores').append('<p>OilPress</p>');
+            Error = true;
         } ;
         if((EGT2 == null) || (EGT2 == "") || (EGT2 == undefined) ){
             $('#errores').append('<p>EGT</p>');
+            Error = true;
         } ;
         if((CHT2 == null) || (CHT2 == "") || (CHT2 == undefined) ){
             $('#errores').append('<p>CHT</p>');
+            Error = true;
         } ;
         if((VOLTS2 == null) || (VOLTS2 == "") || (VOLTS2 == undefined) ){
             $('#errores').append('<p>VOLTS</p>');
+            Error = true;
         } ;
         if((AMPERS2 == null) || (AMPERS2 == "") || (AMPERS2 == undefined) ){
             $('#errores').append('<p>AMPERS</p>');
+            Error = true;
         } ;
         if((FUELFLOW2 == null) || (FUELFLOW2 == "") || (FUELFLOW2 == undefined) ){
             $('#errores').append('<p>FUELFLOW</p>');
+            Error = true;
         } ;
         if(Ferry = false){
             if((Pax1_1 == null) || (Pax1_1 == "") || (Pax1_1 == undefined) ){
                 $('#errores').append('<p>Pasajeros </p>');
             } ;
 
-        };
 
+
+        };
+        if (Error = true) {
+            return false;
+        };
+        return true;
 
 
 }
 function FaltantesGenerales (){
     var PrevueloNombre = $('#PrevueloNombre').val();
     var PrevueloLicencia = $('#PrevueloLicencia').val();
-
+    var Error = true;
     if((PrevueloLicencia == null) || (PrevueloLicencia == "") || (PrevueloLicencia == undefined) ){
+
         $('#errores').append('<p>Licencia del Prevuelo </p>');
+        Error = false;
     } ;
     if((PrevueloNombre == null) || (PrevueloNombre == "") || (PrevueloNombre == undefined) ){
         $('#errores').append('<p>Licencia del Prevuelo </p>');
+        Error = false;
     } ;
+    return Error;
 }
 function BorrarDatosBitacora(){
     $('#hSale').val('');

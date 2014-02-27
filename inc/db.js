@@ -34,13 +34,12 @@ function onBodyLoad(){
  tx.executeSql( 'CREATE TABLE IF NOT EXISTS UserBitacoras(UserId INTEGER NOT NULL PRIMARY KEY, ID Integer, Name TEXT, PassWordd TEXT, Clave TEXT, Password TEXT, Correo TEXT, Licence TEXT, ID Integer)',
 [],nullHandler,errorHandler);
  },errorHandler,successCallBack);
-
-    db.transaction(function(tx){
+db.transaction(function(tx){
         // you can uncomment this next line if you want the User table to be empty each time the application runs
         // tx.executeSql( 'DROP TABLE User',nullHandler,nullHandler);
         tx.executeSql( 'CREATE TABLE IF NOT EXISTS Prevuelo(UserId INTEGER NOT NULL PRIMARY KEY, Name TEXT NOT NULL, Licence TEXT NOT NULL )',
-            [],nullHandler,errorHandler);
-    },errorHandler,successCallBack);
+            [],nullHandler,nullHandler);
+    },nullHandler,successCallBack);
     StartLogin();
     ListDBValues();
 }
@@ -176,6 +175,7 @@ function StartLogin () {
                  if (result.rows.item(0) != null && result.rows != null) {
                     var row = result.rows.item(0);
                     if (row.Name != ''){
+                    document.getElementById("NamePiloto").innerHTML = row.Name;
                     document.getElementById("PerfilNombre").value = row.Name;
                     document.getElementById("PerfilLicencia").value = row.Licence;
                     document.getElementById("PerfilClave").value = row.Clave;
@@ -188,7 +188,7 @@ function StartLogin () {
 
                      $('#usrName').disabled = true;
                      $('#passwordd').disabled = true;
-
+                        location.href = "#home";
                     }
                      else{
                         alert("Not logged in 1");
@@ -202,5 +202,5 @@ function StartLogin () {
     },errorHandler,nullHandler);
 
     return;
-} ;
+};
 

@@ -15,7 +15,7 @@
 
 <script type="text/javascript" language="javascript">
     $(document).ready(function(){
-$("#bitacoraForm").validate();
+
 onBodyLoad();
 });
 	$(function(){
@@ -63,9 +63,9 @@ onBodyLoad();
 	<div data-role="content">
 	 <div><p>Nombre: <span id="NamePiloto"></span></p></div>
 	 	<div>
-	   		<ul data-role="listview" data-filter="true">
-     	<li><a href="#bitacoras">Bitacoras</a><span class="ui-li-count">8</span></li>
-    			<li data-icon="gear"> <a href="#Perfil" runat="server">Perfil</a>
+	   		<ul data-role="listview" >
+     	<li><a href="#bitacoras">Bitacoras</a></li>
+    			<li> <a href="#Perfil" runat="server">Perfil</a>
     			</li>
     		</ul>
     	</div>
@@ -107,7 +107,7 @@ onBodyLoad();
   </div>
    <a href="#" data-role="button" onClick="ListMecanicos();" data-icon="refresh">Lista de Mecanicos</a>
      <a href="#" onClick="BorrarMecanicos();" data-role="button" data-icon="refresh">Borrar Mecanicos</a>
-  <a href="#" onClick="addMecanicos();" data-role="button" data-icon="refresh">Obtener Mecanicos</a>
+  <a href="#" onClick="addMecanicos();alert('Terminado');" data-role="button" data-icon="refresh">Obtener Mecanicos</a>
   <a href="#" data-role="button" onClick="StartLogin();" data-icon="refresh">Cargar dats de DBLocal</a>
   <a href="#" data-role="button" onClick="resetDatabase();" data-icon="refresh">Borrar BDD Local</a>
    <a href="#" data-role="button" onClick="BorrarDatosBitacora();" data-icon="refresh">Borrar Datos</a>
@@ -314,19 +314,14 @@ onBodyLoad();
     <input type="text" id="nVuelo" class="uppercase" required>
     </div>
     </div>
-    <div class="ui-block-a" >
-    <div class="ui-bar">
-
-    <label for="solicitado">OAT:</label>
-    <input type="text" id="OAT" class="uppercase" value= "" required>
-    </div>
-    </div>
     <div class="ui-block-b" >
     <div class="ui-bar">
     <label for="Aceite">Aceite +:</label>
     <input type="text" id="Aceite" class="uppercase" required>
     </div>
    </div>
+   
+    
   </div>
   <a href="#CirrusInstrumentos1" data-role="button" >Siguiente</a>
   </form>
@@ -415,6 +410,13 @@ onBodyLoad();
     <div class="ui-bar">
     <label for="FUELFLOW">FUEL FLOW:</label>
     <input type="text" id="FUELFLOW" class="uppercase" required>
+    </div>
+    </div>
+     <div class="ui-block-b" >
+    <div class="ui-bar">
+
+    <label for="solicitado">OAT:</label>
+    <input type="text" id="OAT" class="uppercase" value= "" required>
     </div>
     </div>
     </div>
@@ -819,7 +821,7 @@ onBodyLoad();
   </div>
   <div data-role="content">
   <a href="#" onClick="EnvioBitacora();" data-role="button">Enviar 1Tramo a Servidor</a>
-  <a href="#" onClick="EnviarBitacora2T();" data-role="button">Enviar 2 Tramos</a>
+  <a href="#" onClick="EnvioBitacora2();" data-role="button">Enviar 2 Tramos</a>
   <div id="errores">
   </div>
   </div>

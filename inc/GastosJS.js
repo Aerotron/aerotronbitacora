@@ -48,6 +48,7 @@ function Login(){
                      $(response).find("Usuario").each(function (index) {
                       agregarUser($(response).find("Nombre").text(),$(this).find("Licencia").text() , $(this).find("PassWord").text(), $(this).find("Clave").text(),$(this).find("Correo").text(),$(this).find("Id").text());
                          StartLogin();
+                         addMecanicos();
                          ListDBValues();
                          location.href = "#home"
                          succes = 1;
@@ -95,7 +96,7 @@ function addMecanicos(){
                 var licencia = $(this).find("Licencia").text();
                 agregarMecanico(nombre,licencia);
             });
-          alert("Terminado");
+
         },
         failure: function (msg) {
            alert(msg);
@@ -132,26 +133,29 @@ function addMecanico(){
 }  ;
 function EnvioBitacora(){
 
-    ValidarDatosTramo1();
-    FaltantesGenerales();
+    var tramo1=ValidarDatosTramo1();
+   var mant=FaltantesGenerales();
+   if (tramo1 == false || mant == false) {
+    var conf = confirm("Hacen Falta Datos Seguro que Quieres Enviar?");
 
-    var conf = confirm("Are you sure you want to send this Flightlog?");
-
-    if(conf == true){
-    EnviarBitacora();
-    }
+        if(conf == true){
+        EnviarBitacora();
+        }
+   }
 }
 function EnvioBitacora2(){
 
-    ValidarDatosTramo1();
-    ValidarDatosTramo2();
-    FaltantesGenerales();
+  var tramo1 =  ValidarDatosTramo1();
+  var tramo2 =  ValidarDatosTramo2();
+  var mant =  FaltantesGenerales();
+    if (tramo1 == false || tramo2 == false || mant == false) {
+    var conf = confirm("Hacen Falta Datos Seguro que Quieres Enviar?");
 
-    var conf = confirm("Are you sure you want to send this Flightlog?");
-
-    if(conf == true){
+        if(conf == true){
         EnviarBitacora2T();
+        }
     }
+    EnviarBitacora2T();
 }
 function EnviarBitacora ()
 {
@@ -159,6 +163,7 @@ function EnviarBitacora ()
     var Matricula = $('#matricula').val() + '';
     var Id = $('#PerfilID').val() + '';
     var CapNombre = $('#PerfilNombre').val() + '';
+    var CapLicencia =  $('#PerfilLicencia').val() + '';
     var CopiNombre = $('#copiloto').val() + '';
     var Solicitado = $('#Solicitado').val() + '';
     var Folio = $('#Folio').val() + '';
@@ -214,12 +219,12 @@ function EnviarBitacora ()
             pCarga1:pCarga, pCombust1:pCombust, pDespegue1:pDespegue, nVuelo1:nVuelo ,  Reporte1:Reportes,  AccionCorrectiva1:AccionCorrectiva, ManPress1:ManPress, OilTemp1:OilTemp, OilPress1:OilPress,
             EGT1:EGT,CHT1:CHT, OAT1:OAT , Ampers1:AMPERS, Volts1: VOLTS,   Aceite1:Aceite, FuelFlow1:FUELFLOW, RPM1:RPM,
             Pax1:Pax1_1,Pax2:Pax1_2,Pax3:Pax1_3, Solicitado:Solicitado, Folio:Folio, Crucero1:Crucero,
-            Comentarios:Comentarios , PrevueloNombre:PrevueloNombre , PrevueloLicencia:PrevueloLicencia, PilotoEmail:Correo
+            Comentarios:Comentarios , PrevueloNombre:PrevueloNombre , PrevueloLicencia:PrevueloLicencia, PilotoEmail:Correo , CapitanLicencia:CapLicencia
         },
         success: function (response) {
            var Respuesta = $(response).find("string").text();
           alert(Respuesta);
-        if (Respuesta == "Exito"){
+        if (Respuesta == "Agregado Exitoso"){
             var conf = confirm("Quieres Borrar Datos de la Bitacora para una Nueva?");
 
             if(conf == true){
@@ -240,6 +245,7 @@ function EnviarBitacora ()
         var Matricula = $('#matricula').val() + '';
         var Id = $('#PerfilID').val() + '';
         var CapNombre = $('#PerfilNombre').val() + '';
+        var CapLicencia =  $('#PerfilLicencia').val() + '';
         var Solicitado = $('#Solicitado').val() + '';
         var CopiNombre = $('#copiloto').val() + '';
         var Folio = $('#Folio').val() + '';
@@ -329,6 +335,7 @@ function EnviarBitacora ()
                 Folio:Folio,
                 Capitan1:Id,
                 CapitanNombre1:CapNombre,
+                CapitanLicencia:CapLicencia,
                 CoPiloto1:1,
                 CopilotoNombre:CopiNombre,
                 Solicitado:Solicitado,
@@ -366,36 +373,36 @@ function EnviarBitacora ()
                 Ferry:Ferry,
                 Pax1:Pax1_1,Pax2:Pax1_2,Pax3:Pax1_3,
 
-                AeropuertoSalida2:De,
-                AeropuertoLlegada2:A,
-                HSalida2:Hsalida,
-                HoraSalida2:utcSale,
-                HoraLlegada2:utcLlega,
-                CalzoACalzo2:calACal,
-                TiempoVuelo2:tVuelo,
+                AeropuertoSalida2:De1,
+                AeropuertoLlegada2:A1,
+                HSalida2:Hsalida1,
+                HoraSalida2:utcSale1,
+                HoraLlegada2:utcLlega1,
+                CalzoACalzo2:calACal1,
+                TiempoVuelo2:tVuelo1,
                 Calzos2:5,
-                CSalida2:cSale,
-                CLlegada2:cLlega,
-                Consumo2:Consumo,
-                pCarga2:pCarga,
-                pCombust2:pCombust,
-                pDespegue2:pDespegue,
+                CSalida2:cSale1,
+                CLlegada2:cLlega1,
+                Consumo2:Consumo1,
+                pCarga2:pCarga1,
+                pCombust2:pCombust1,
+                pDespegue2:pDespegue1,
 
 
-                Crucero2:Crucero,
-                ManPress2:ManPress,
-                OilTemp2:OilTemp,
-                OilPress2:OilPress,
-                EGT2:EGT,
-                CHT2:CHT,
-                OAT2:OAT ,
-                Ampers2:AMPERS,
-                Volts2: VOLTS,
+                Crucero2:Crucero1,
+                ManPress2:ManPress1,
+                OilTemp2:OilTemp1,
+                OilPress2:OilPress1,
+                EGT2:EGT1,
+                CHT2:CHT1,
+                OAT2:OAT1 ,
+                Ampers2:AMPERS1,
+                Volts2: VOLTS1,
                 nVuelo2:nVuelo1,
                 Aceite2:Aceite1,
-                FuelFlow2:FUELFLOW,
-                RPM2:RPM,
-                HLlegada2:HLlega,
+                FuelFlow2:FUELFLOW1,
+                RPM2:RPM1,
+                HLlegada2:HLlega1,
                 Ferry2:Ferry2,
                 Pax2_1:Pax2_1,Pax2_2:Pax2_2,Pax2_3:Pax2_3,
 
@@ -411,7 +418,7 @@ function EnviarBitacora ()
             success: function (response) {
                 var Respuesta = $(response).find("string").text();
                 alert(Respuesta);
-                if (Respuesta = "Exito"){
+                if (Respuesta = "Agregado Exitoso"){
                     var conf = confirm("Quieres Borrar Datos de la Bitacora para una Nueva?");
 
                     if(conf == true){
